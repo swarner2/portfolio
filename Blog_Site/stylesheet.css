@@ -1,0 +1,70 @@
+#doneList {
+	text-decoration: line-through;
+	color: grey;
+}
+.list{
+	margin: auto;
+	width: 60%;
+}
+.listItem{
+	border-bottom: thin solid lightgrey;
+}
+.list h3{
+	margin-top: 0px;
+	padding-left: 12px;
+	border-bottom: thin solid;
+	color: white;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 3px;
+	background: #008CBA;
+	margin-bottom: 0px;
+}
+
+h1{
+	background-color: grey;
+	color: white;
+	padding-left: 12px;
+	padding-bottom: 3px;
+	margin: 0px;
+}
+ul{
+	
+	list-style: none;
+	margin-right: 30px;
+	margin: 0px;
+	padding: 0px;
+}
+
+li{
+	padding-left: 20px;
+}
+body{
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
+#inputForm{
+	margin: auto;
+	width: 60%;
+	padding-left: 10px;
+}
+input[type=text] {
+    width: 55%;
+    padding: 12px 20px;
+    margin: 8px ;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+button{
+	background-color: #008CBA;
+	border: none;
+    color: white;
+    padding: 9px 25px;
+    width: 35%;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
