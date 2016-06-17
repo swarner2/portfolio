@@ -1,13 +1,18 @@
+
 var express = require('express');
+
 var app = express();
+
 var path = require('path');
 
 var currPath =  path.join(__dirname);
+var qs = require('querystring');
 
 var listData = {
-	toDo: ['dishes','laundry','baths (I am stinky!)','sweep'],
-	done: ['sleep', 'more sleep']
+	toDo: ['connect form to server','fix drag and drop bugs (I know you are there!)','make delete button'],
+	done: [,'set up server','get pages from server calls','drag and drop','get data from server']
 }
+
 
 app.use(express.static('/Blog_Site'));
 app.get('/', function (req, res) {
@@ -28,6 +33,11 @@ app.get('/data', function (req, res) {
 app.get('/blocks', function(request, response){
 	var blocks = ['Fixed','Movable','Rotating'];
 	response.json(blocks);
+});
+
+app.post('/action', function(req, res) {
+
+  res.send('You sent the name "' + req.body.newTask + '".');
 });
 
 var port = 8080;
