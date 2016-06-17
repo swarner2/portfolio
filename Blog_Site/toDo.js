@@ -128,11 +128,12 @@ function whereInLists(that){
     }
 }
 //this adds a new to do list item to the list
-function addItem(x){
+function addItem(x, list){
 
 	var li = document.createElement('li');
 	var newTask = document.getElementById('newTask');
 	li.className = 'listItem'
+  
 	toDoList.appendChild(li);
   //if there is no value let the inner html go through the passed argument
   //this is intended to be coming from the storred data on load
@@ -144,7 +145,8 @@ function addItem(x){
 	li.ondragover = allowDrop;
 	li.ondrop = dropItem;
 }
-
+/*
+//this was to practice pulling data on load through a data.txt with the data set up as an array
 var xmlhttp = new XMLHttpRequest();
 var url = "/data";
 xmlhttp.onreadystatechange = function() {
@@ -161,5 +163,23 @@ xmlhttp.onreadystatechange = function() {
 };
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
+*/
+
+//this was to practice pulling data on load through a data.txt with the data set up as an array
+var xmlhttp = new XMLHttpRequest();
+var url = "/data";
+xmlhttp.onreadystatechange = function() {
+  if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+    var serverData = xmlhttp.responseText;
+    var toDoData = JSON.parse(serverData).toDo;
+    for(var i = 0; i < toDoData.length; i++){
+      console.log(toDoData[i])
+      addItem(toDoData[i]);
+    }
+  }
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
 
 submit.onclick = addItem;
