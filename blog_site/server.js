@@ -12,6 +12,10 @@ app.get('/', function (req, res) {
 app.get('/toDo', function (req, res) {
   res.sendFile( currPath + '/toDo.html');
 });
+app.get('/about', function (req, res) {
+  res.sendFile( currPath + '/toDo.html');
+});
+
 
 var port = 8080;
 app.listen(port, function () {
