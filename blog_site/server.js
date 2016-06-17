@@ -12,8 +12,11 @@ app.get('/', function (req, res) {
 app.get('/toDo', function (req, res) {
   res.sendFile( currPath + '/toDo.html');
 });
-app.get('/about', function (req, res) {
-  res.sendFile( currPath + '/toDo.html');
+app.get('/js', function (req, res) {
+  res.sendFile( currPath + '/toDo.js');
+});
+app.get('/stylesheet', function (req, res) {
+  res.sendFile( currPath + '/stylesheet.css');
 });
 
 
