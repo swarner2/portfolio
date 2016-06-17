@@ -4,8 +4,7 @@ var path = require('path');
 
 var currPath =  path.join(__dirname);
 
-
-app.use(express.static('Blog_Site'));
+app.use(express.static('/Blog_Site'));
 app.get('/', function (req, res) {
   res.sendFile( currPath + '/home.html' );
 });
@@ -18,7 +17,13 @@ app.get('/js', function (req, res) {
 app.get('/stylesheet', function (req, res) {
   res.sendFile( currPath + '/stylesheet.css');
 });
-
+app.get('/data', function (req, res) {
+  res.sendFile( currPath + '/data.txt');
+});
+app.get('/blocks', function(request, response){
+	var blocks = ['Fixed','Movable','Rotating'];
+	response.json(blocks);
+});
 
 var port = 8080;
 app.listen(port, function () {

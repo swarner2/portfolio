@@ -2,6 +2,27 @@ var toDoList = document.getElementById('toDoList');
 var doneList = document.getElementById('doneList');
 var submit = document.getElementById('submit')
 
+/*  JSON Example
+//  from:  http://www.w3schools.com/json/json_http.asp
+var xmlhttp = new XMLHttpRequest();
+var url = "/data";
+xmlhttp.onreadystatechange = function() {
+if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+    var serverdata = JSON.parse(xmlhttp.responseText);
+    var data = "";
+    console.log(serverdata);
+      for(var i = 0; i < serverdata.length; i++){
+          data += serverdata[i].display + " , " + serverdata[i].url;
+      }
+    console.log('data: ' + data)
+    }
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+*/
+
+
+
 //draggedItem and itemDroppedOn are used to transfer data between the drag and drop
 var draggedItem = {}
 var itemDroppedOn = {}
@@ -107,17 +128,38 @@ function whereInLists(that){
     }
 }
 //this adds a new to do list item to the list
-function addItem(){
+function addItem(x){
+
 	var li = document.createElement('li');
 	var newTask = document.getElementById('newTask');
 	li.className = 'listItem'
 	toDoList.appendChild(li);
-	li.innerHTML = newTask.value;
+  //if there is no value let the inner html go through the passed argument
+  //this is intended to be coming from the storred data on load
+  if (newTask.value == false){li.innerHTML = x}
+  else{li.innerHTML = newTask.value;}
 	li.onclick = changeList;
 	li.draggable = true;
 	li.ondragstart = dragItem;
 	li.ondragover = allowDrop;
 	li.ondrop = dropItem;
 }
+
+var xmlhttp = new XMLHttpRequest();
+var url = "/data";
+xmlhttp.onreadystatechange = function() {
+  if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+    var serverData = xmlhttp.responseText
+    var cleanData = serverData.replace('[','')
+    cleanData = cleanData.replace(']','')
+    cleanData = cleanData.split(',');
+    for(var i = 0; i < cleanData.length; i++){
+      console.log(cleanData[i])
+      addItem(cleanData[i]);
+    }
+  }
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
 
 submit.onclick = addItem;
