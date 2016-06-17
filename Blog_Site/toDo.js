@@ -133,14 +133,18 @@ function addItem(x, list){
 	var li = document.createElement('li');
 	var newTask = document.getElementById('newTask');
 	li.className = 'listItem'
-  
-	toDoList.appendChild(li);
+  if (list == false || list === 'toDoList'){
+	  toDoList.appendChild(li);
+  };
+  if (list === 'doneList') {
+    doneList.appendChild(li);
+  }
   //if there is no value let the inner html go through the passed argument
   //this is intended to be coming from the storred data on load
   if (newTask.value == false){li.innerHTML = x}
   else{li.innerHTML = newTask.value;}
 	li.onclick = changeList;
-	li.draggable = true;
+	li.draggable = true; 
 	li.ondragstart = dragItem;
 	li.ondragover = allowDrop;
 	li.ondrop = dropItem;
@@ -172,10 +176,15 @@ xmlhttp.onreadystatechange = function() {
   if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
     var serverData = xmlhttp.responseText;
     var toDoData = JSON.parse(serverData).toDo;
+    var doneData = JSON.parse(serverData).done;
     for(var i = 0; i < toDoData.length; i++){
       console.log(toDoData[i])
-      addItem(toDoData[i]);
+      addItem(toDoData[i], 'toDoList');
     }
+    for(var i = 0; i < doneData.length; i++){
+      console.log(doneData[i])
+      addItem(doneData[i], 'doneList');
+    }    
   }
 };
 xmlhttp.open("GET", url, true);
