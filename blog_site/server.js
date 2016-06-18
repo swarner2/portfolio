@@ -9,7 +9,7 @@ var currPath =  path.join(__dirname);
 var qs = require('querystring');
 
 var listData = {
-	toDo: ['connect form to server','fix drag and drop bugs (I know you are there!)','make delete button'],
+	toDo: ['connect form to server','fix drag and drop bugs (I know you are there!)','make delete button', 'switch over to atom ide'],
 	done: [,'set up server','get pages from server calls','drag and drop','get data from server']
 }
 

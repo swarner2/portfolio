@@ -33,8 +33,8 @@ function dragItem(event){
 	event.dataTransfer.setData('text/html', event.target);
 	event.dataTransfer.dropEffect = 'move';
 }
-//dropItem compaires the draggedItem and itemDroppedOn positions to decide which is
-//placed infront of which
+//dropItem compares the draggedItem and itemDroppedOn positions to decide which is
+//placed in front of which
 function dropItem(event) {
   event.preventDefault();
  	itemDroppedOn = whereInLists(event.target);
