@@ -1,16 +1,28 @@
 {
   "name": "blog_site",
   "version": "1.0.0",
-  "description": "",
+  "description": "portfolio site",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "",
+  "author": "Samuel Warner",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.14.0"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swarner2/portfolio.git"
+  },
+  "keywords": [
+    "portfolio"
+  ],
+  "bugs": {
+    "url": "https://github.com/swarner2/portfolio/issues"
+  },
+  "homepage": "https://github.com/swarner2/portfolio#readme"
 }

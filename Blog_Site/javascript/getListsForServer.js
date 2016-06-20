@@ -1,0 +1,4 @@
+var clientList = {
+	toDo :[],
+	done :[],
+}
