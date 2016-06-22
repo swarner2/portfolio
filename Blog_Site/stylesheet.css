@@ -1,3 +1,7 @@
+body{
+	box-sizing: border-box;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
 h1{
 	background-color: grey;
 	color: white;
@@ -6,45 +10,49 @@ h1{
 	margin: 0px;
 }
 ul{
-
 	list-style: none;
 	margin-right: 30px;
 	margin: 0px;
 	padding: 0px;
 }
-
 li{
 	padding-left: 20px;
-}
-body{
-	font-family: "Comic Sans MS", cursive, sans-serif;
-}
-li{
 	border-bottom: thin solid lightgrey;
 }
 button{
 	background-color: #008CBA;
 	border: none;
-    color: white;
-    padding: 9px 25px;
-    width: 35%;
-    border-radius: 4px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-	font-family: "Comic Sans MS", cursive, sans-serif;
+  color: white;
+  padding: 9px 25px;
+  width: 35%;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 .deleteButton{
-	background-color: darkred;
-	width: 5%;
-	padding: 0px;
-
+	background-color: white;
+	    width: 15px;
+	    padding: 1px;
+	    height: 20px;
+	    color: darkred;
+			margin-top: auto;
+			margin-bottom: auto;
+			margin-right: 5px;
 }
-li p{
-	margin: auto;
-	width: 50%;
-	float: left;
+#divLeft{
+	float: none;
+	width: 95%;
+}
+#divRight{
+	float: right;
+}
+li p {
+	margin: 0px;
+}
+li div{
+    display: inline-block;
 }
 #doneList {
 	text-decoration: line-through;
@@ -67,7 +75,6 @@ li p{
 	background: #008CBA;
 	margin-bottom: 0px;
 }
-
 #inputForm{
 	margin: auto;
 	width: 60%;

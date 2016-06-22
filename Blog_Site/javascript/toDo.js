@@ -69,7 +69,8 @@ function findListParent(that){
 //this adds a new to do list item to the list
 function addItem(x, list){
 	var li = document.createElement('li');
-  var div = document.createElement('div')
+  var divLeft = document.createElement('div');
+  var divRight = document.createElement('div');
   var p = document.createElement('p');
 	var newTask = document.getElementById('newTask');
   var button = document.createElement('button');
@@ -87,15 +88,18 @@ function addItem(x, list){
   }
   //if there is no value let the inner html go through the passed argument
   //this is intended to be coming from the storred data on load
-  li.appendChild(div);
-  div.appendChild(p);
+  li.appendChild(divLeft);
+  li.appendChild(divRight);
+  divLeft.id = 'divLeft';
+  divRight.id = 'divRight';
+  divLeft.appendChild(p);
+  divRight.appendChild(button);
   if (newTask.value === ''){p.innerHTML = x}
   else{
     p.innerHTML = newTask.value;
     console.log('pulled from input')
   }
   //make delete button
-  li.appendChild(button);
   button.innerHTML = 'X';
   button.className = 'deleteButton';
   //make li draggable
