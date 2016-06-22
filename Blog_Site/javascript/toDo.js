@@ -49,7 +49,10 @@ function whereInLists(that){
 //this adds a new to do list item to the list
 function addItem(x, list){
 	var li = document.createElement('li');
+  var div = document.createElement('div')
 	var newTask = document.getElementById('newTask');
+  var deleteButton = "<button type ='submit' name='deleteButton' id='deleteButton'>X</button>"
+
   //sort to needed list if a list is passed as an argument else put it on toDoList
   if (list === 'toDoList'){
 	  toDoList.appendChild(li);
@@ -74,5 +77,6 @@ function addItem(x, list){
 	li.ondragstart = dragItem;
 	li.ondragover = allowDrop;
 	li.ondrop = dropItem;
+//  li.innerHTML = li.innerHTML + deleteButton;
 }
 submit.onclick = submission;

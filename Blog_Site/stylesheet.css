@@ -35,6 +35,10 @@ button{
     font-size: 16px;
 	font-family: "Comic Sans MS", cursive, sans-serif;
 }
+#deleteButton{
+	background-color: darkred;
+}
+
 #doneList {
 	text-decoration: line-through;
 	color: grey;
