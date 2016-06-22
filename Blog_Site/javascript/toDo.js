@@ -14,13 +14,12 @@ function submission(){
 //it will move the element from one list to the other
 function changeList(event){
     var that = event.target
-  	var list = whereInLists(event.target).list
-//    console.log(list)
-  	var place = whereInLists(event.target).place
-    console.log(place);
-  	if(list.id === 'toDoList'){var otherList = document.getElementById('doneList')}
+    var obj = whereInLists(that);
+    var list = document.getElementById(obj.list);
+    console.log(obj);
+  	if(obj.list === 'toDoList'){var otherList = document.getElementById('doneList')}
   	else{var otherList = document.getElementById('toDoList')}
-  	otherList.appendChild(list.childNodes[place]);
+  	otherList.appendChild(list.childNodes[obj.place]);
 }
 //whereInLists expects That (that = this) as its argument
 //the output will be an object.list (which list the clicked item is in)
@@ -43,10 +42,12 @@ function whereInLists(that){
 //      console.log(list)
       data.list = findListParent(that);
 //      console.log(data);
+      //reset that to the list element
+      if (that.tagName === 'DIV') {
+        var li = that.parentElement;
+      }
       for(var i = 0; i < list.childNodes.length; i++){
-          console.log(that);
-          console.log(list.childNodes[i]);
-          if(list.childNodes[i] === that){
+          if(list.childNodes[i] === li){
             data.place = i;
           }
       }
