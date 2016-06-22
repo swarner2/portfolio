@@ -39,10 +39,10 @@ function whereInLists(that){
       data.list = findListParent(that);
       //reset that to the list element
       if (that.tagName === 'DIV') {
-        var li = that.parentElement;
+        that = that.parentElement;
       }
       for(var i = 0; i < list.childNodes.length; i++){
-          if(list.childNodes[i] === li){
+          if(list.childNodes[i] === that){
             data.place = i;
           }
       }
