@@ -1,7 +1,6 @@
 var toDoList = document.getElementById('toDoList');
 var doneList = document.getElementById('doneList');
 var submit = document.getElementById('submit');
-var formData = document.getElementById('formData');
 
 //Add the new item and then reset the value of the input
 //post the DOM lists up to the server to give the new info
@@ -16,7 +15,6 @@ function changeList(event){
     var that = event.target
     var obj = whereInLists(that);
     var list = document.getElementById(obj.list);
-    console.log(obj);
   	if(obj.list === 'toDoList'){var otherList = document.getElementById('doneList')}
   	else{var otherList = document.getElementById('toDoList')}
   	otherList.appendChild(list.childNodes[obj.place]);
@@ -38,10 +36,7 @@ function whereInLists(that){
     }
     if (!data.fromHeader){
       var list = document.getElementById(findListParent(that));
-//      console.log('whereInLists says that findListParent says : ');
-//      console.log(list)
       data.list = findListParent(that);
-//      console.log(data);
       //reset that to the list element
       if (that.tagName === 'DIV') {
         var li = that.parentElement;
