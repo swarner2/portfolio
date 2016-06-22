@@ -17,6 +17,7 @@ function changeList(event){
     var list = document.getElementById(obj.list);
   	if(obj.list === 'toDoList'){var otherList = document.getElementById('doneList')}
   	else{var otherList = document.getElementById('toDoList')}
+    //console.log(obj)
   	otherList.appendChild(list.childNodes[obj.place]);
 }
 //whereInLists expects That (that = this) as its argument
@@ -38,7 +39,7 @@ function whereInLists(that){
       var list = document.getElementById(findListParent(that));
       data.list = findListParent(that);
       //reset that to the list element
-      if (that.tagName === 'P') {
+      while (that.tagName !== 'LI') {
         that = that.parentElement;
       }
       for(var i = 0; i < list.childNodes.length; i++){
@@ -86,7 +87,8 @@ function addItem(x, list){
   }
   //if there is no value let the inner html go through the passed argument
   //this is intended to be coming from the storred data on load
-  li.appendChild(p);
+  li.appendChild(div);
+  div.appendChild(p);
   if (newTask.value === ''){p.innerHTML = x}
   else{
     p.innerHTML = newTask.value;
