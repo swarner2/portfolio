@@ -53,23 +53,18 @@ function whereInLists(that){
       return data
     }
 }
-//used to find the parent no matter what child is clicked on
+//used to find the parent list no matter what child is clicked on
+//returns the id of the parent list
+//must have the event.target passed as that
 function findListParent(that){
   var result;
-  //var i = 0;
   function goUpOne(that){
-    //  console.log(i)
-    //i++;
     if (that.parentElement.id !== ('toDoList' || 'doneList')){
       return goUpOne(that.parentElement);
     }
     else if (that.parentElement.id === ('toDoList' || 'doneList')){
-      result = that.parentElement.id;
-      return result;
-      //    console.log("findListParent says : ");
-      //    console.log(result);
+      return that.parentElement.id;
     }
-    //console.log(that)
   };
   return goUpOne(that);
 }
