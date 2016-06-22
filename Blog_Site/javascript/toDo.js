@@ -15,7 +15,9 @@ function submission(){
 function changeList(event){
     var that = event.target
   	var list = whereInLists(event.target).list
+//    console.log(list)
   	var place = whereInLists(event.target).place
+    console.log(place);
   	if(list.id === 'toDoList'){var otherList = document.getElementById('doneList')}
   	else{var otherList = document.getElementById('toDoList')}
   	otherList.appendChild(list.childNodes[place]);
@@ -36,11 +38,14 @@ function whereInLists(that){
       return data
     }
     if (!data.fromHeader){
-      var list = findListParent(that);
-      console.log('whereInLists says that findListParent says : ');
-      console.log(list);
-      data.list = list;
+      var list = document.getElementById(findListParent(that));
+//      console.log('whereInLists says that findListParent says : ');
+//      console.log(list)
+      data.list = findListParent(that);
+//      console.log(data);
       for(var i = 0; i < list.childNodes.length; i++){
+          console.log(that);
+          console.log(list.childNodes[i]);
           if(list.childNodes[i] === that){
             data.place = i;
           }
@@ -50,16 +55,23 @@ function whereInLists(that){
 }
 //used to find the parent no matter what child is clicked on
 function findListParent(that){
-  //console.log(that)
-  if (that.parentElement.id !== ('toDoList' || 'doneList')){
-    findListParent(that.parentElement);
-  }
-  else if (that.parentElement.id === ('toDoList' || 'doneList')){
-    var result = document.getElementById(that.parentElement.id);
-    console.log("findListParent says : ");
-    console.log(result);
-    return result;
-  }
+  var result;
+  //var i = 0;
+  function goUpOne(that){
+    //  console.log(i)
+    //i++;
+    if (that.parentElement.id !== ('toDoList' || 'doneList')){
+      return goUpOne(that.parentElement);
+    }
+    else if (that.parentElement.id === ('toDoList' || 'doneList')){
+      result = that.parentElement.id;
+      return result;
+      //    console.log("findListParent says : ");
+      //    console.log(result);
+    }
+    //console.log(that)
+  };
+  return goUpOne(that);
 }
 //this adds a new to do list item to the list
 function addItem(x, list){
