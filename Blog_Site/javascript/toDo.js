@@ -36,8 +36,8 @@ function whereInLists(that){
       return data 
     }    
     if (!data.fromHeader) {}{
-      var list = document.getElementById(that.parentElement.id);
-      data.list = list;
+      var list = findListParent(that);
+      data.list = that;
       for(var i = 0; i < list.childNodes.length; i++){
           if(list.childNodes[i] === that){
             data.place = i;
@@ -45,6 +45,15 @@ function whereInLists(that){
       } 
       return data
     }
+}
+//used to find the parent no matter what child is clicked on
+function findListParent(that){
+  if (that.parentElement.id !== ('toDoList' || 'doneList')){
+    findListParent(that.parentElement);
+  }
+  else{
+    console.log(that.parentElement.id)
+    return that.parentElement.id}
 }
 //this adds a new to do list item to the list
 function addItem(x, list){
@@ -66,9 +75,10 @@ function addItem(x, list){
   }
   //if there is no value let the inner html go through the passed argument
   //this is intended to be coming from the storred data on load
-  if (newTask.value === ''){li.innerHTML = x}
+  li.appendChild(div)
+  if (newTask.value === ''){div.innerHTML = x}
   else{
-    li.innerHTML = newTask.value;
+    div.innerHTML = newTask.value;
     console.log('pulled from input')
   }
   //make it draggable
