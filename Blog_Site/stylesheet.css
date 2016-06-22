@@ -1,28 +1,3 @@
-#doneList {
-	text-decoration: line-through;
-	color: grey;
-}
-.list{
-	margin: auto;
-	width: 60%;
-    border: rgba(100,100,100,0.25) 1px solid;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 5px;
-}
-li{
-	border-bottom: thin solid lightgrey;
-}
-.list h3{
-	margin-top: 0px;
-	padding-left: 12px;
-	border-bottom: thin solid;
-	color: white;
-	border-top-left-radius: 6px;
-	border-top-right-radius: 3px;
-	background: #008CBA;
-	margin-bottom: 0px;
-}
-
 h1{
 	background-color: grey;
 	color: white;
@@ -44,19 +19,8 @@ li{
 body{
 	font-family: "Comic Sans MS", cursive, sans-serif;
 }
-#inputForm{
-	margin: auto;
-	width: 60%;
-	padding-left: 10px;
-}
-input[type=text] {
-    width: 55%;
-    padding: 12px 20px;
-    margin: 8px ;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+li{
+	border-bottom: thin solid lightgrey;
 }
 button{
 	background-color: #008CBA;
@@ -70,4 +34,40 @@ button{
     display: inline-block;
     font-size: 16px;
 	font-family: "Comic Sans MS", cursive, sans-serif;
+}
+#doneList {
+	text-decoration: line-through;
+	color: grey;
+}
+.list{
+	margin: auto;
+	width: 60%;
+    border: rgba(100,100,100,0.25) 1px solid;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 5px;
+}
+.list h3{
+	margin-top: 0px;
+	padding-left: 12px;
+	border-bottom: thin solid;
+	color: white;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 3px;
+	background: #008CBA;
+	margin-bottom: 0px;
+}
+
+#inputForm{
+	margin: auto;
+	width: 60%;
+	padding-left: 10px;
+}
+input[type=text] {
+    width: 55%;
+    padding: 12px 20px;
+    margin: 8px ;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
