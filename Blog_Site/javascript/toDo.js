@@ -60,12 +60,12 @@ function whereInLists(that){
 function findListParent(that){
   var result;
   function goUpOne(that){
-    console.log(that);
-    if (that.parentElement.id !== 'toDoList' && that.parentElement.id !== 'doneList'){
-      return goUpOne(that.parentElement);
+    var parent = that.parentElement
+    if (parent.id !== 'toDoList' && parent.id !== 'doneList'){
+      return goUpOne(parent);
     }
-    else if (that.parentElement.id === 'toDoList' || that.parentElement.id === 'doneList'){
-      return that.parentElement.id;
+    else if (parent.id === 'toDoList' || parent.id === 'doneList'){
+      return parent.id;
     }
   };
   return goUpOne(that);
