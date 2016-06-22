@@ -6,7 +6,7 @@ h1{
 	margin: 0px;
 }
 ul{
-	
+
 	list-style: none;
 	margin-right: 30px;
 	margin: 0px;
@@ -35,10 +35,17 @@ button{
     font-size: 16px;
 	font-family: "Comic Sans MS", cursive, sans-serif;
 }
-#deleteButton{
+.deleteButton{
 	background-color: darkred;
-}
+	width: 5%;
+	padding: 0px;
 
+}
+li p{
+	margin: auto;
+	width: 50%;
+	float: left;
+}
 #doneList {
 	text-decoration: line-through;
 	color: grey;

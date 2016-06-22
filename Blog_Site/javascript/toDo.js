@@ -38,7 +38,7 @@ function whereInLists(that){
       var list = document.getElementById(findListParent(that));
       data.list = findListParent(that);
       //reset that to the list element
-      if (that.tagName === 'DIV') {
+      if (that.tagName === 'P') {
         that = that.parentElement;
       }
       for(var i = 0; i < list.childNodes.length; i++){
@@ -69,8 +69,9 @@ function findListParent(that){
 function addItem(x, list){
 	var li = document.createElement('li');
   var div = document.createElement('div')
+  var p = document.createElement('p');
 	var newTask = document.getElementById('newTask');
-  var deleteButton = "<button type ='submit' name='deleteButton' id='deleteButton'>X</button>"
+  var button = document.createElement('button');
 
   //sort to needed list if a list is passed as an argument else put it on toDoList
   if (list === 'toDoList'){
@@ -85,13 +86,17 @@ function addItem(x, list){
   }
   //if there is no value let the inner html go through the passed argument
   //this is intended to be coming from the storred data on load
-  li.appendChild(div)
-  if (newTask.value === ''){div.innerHTML = x}
+  li.appendChild(p);
+  if (newTask.value === ''){p.innerHTML = x}
   else{
-    div.innerHTML = newTask.value;
+    p.innerHTML = newTask.value;
     console.log('pulled from input')
   }
-  //make it draggable
+  //make delete button
+  li.appendChild(button);
+  button.innerHTML = 'X';
+  button.className = 'deleteButton';
+  //make li draggable
 	li.onclick = changeList;
 	li.draggable = true;
 	li.ondragstart = dragItem;
