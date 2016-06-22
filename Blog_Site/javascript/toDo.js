@@ -33,27 +33,33 @@ function whereInLists(that){
     if (that.id === 'doneListHeader') {
       data.fromHeader = true;
       data.list = document.getElementById('doneList');
-      return data 
-    }    
-    if (!data.fromHeader) {}{
+      return data
+    }
+    if (!data.fromHeader){
       var list = findListParent(that);
-      data.list = that;
+      console.log('whereInLists says that findListParent says : ');
+      console.log(list);
+      data.list = list;
       for(var i = 0; i < list.childNodes.length; i++){
           if(list.childNodes[i] === that){
             data.place = i;
           }
-      } 
+      }
       return data
     }
 }
 //used to find the parent no matter what child is clicked on
 function findListParent(that){
+  //console.log(that)
   if (that.parentElement.id !== ('toDoList' || 'doneList')){
     findListParent(that.parentElement);
   }
-  else{
-    console.log(that.parentElement.id)
-    return that.parentElement.id}
+  else if (that.parentElement.id === ('toDoList' || 'doneList')){
+    var result = document.getElementById(that.parentElement.id);
+    console.log("findListParent says : ");
+    console.log(result);
+    return result;
+  }
 }
 //this adds a new to do list item to the list
 function addItem(x, list){
@@ -83,7 +89,7 @@ function addItem(x, list){
   }
   //make it draggable
 	li.onclick = changeList;
-	li.draggable = true; 
+	li.draggable = true;
 	li.ondragstart = dragItem;
 	li.ondragover = allowDrop;
 	li.ondrop = dropItem;
