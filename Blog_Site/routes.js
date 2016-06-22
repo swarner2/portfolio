@@ -8,7 +8,9 @@ module.exports = function(app){
 		'/toDo' 		: '/toDo.html',
 		'/toDoJs' 		: scripts + '/toDo.js',
 		'/draggableJs' 	: scripts + '/draggable.js',
-		'/stylesheet'	: '/stylesheet.css'
+		'/clientLists'	: scripts + '/clientLists.js',
+		'/onLoad'		: scripts + '/onLoad.js',
+		'/stylesheet'	: '/stylesheet.css',
 	};
 	var makeRoute = function(route, file){
 		app.get(route, function (req, res) {

@@ -6,26 +6,25 @@
 </head>
 <body>
 <h1>Tasks</h1>
-<form id="inputForm" action="/toDo" method="post">
+<div id="inputForm">
 		<input type="text" name="newTask" id="newTask">
 	<button type ="submit" name="submitButton" id='submit' >Add Task</button>
-</form>
+</div>
 <div id="listContainer">
 	<div class="list" id="toDoListContainer" >
 		<h3 id='toDoListHeader' ondragover="allowDrop(event)" ondrop="dropItem(event)"> To Do: </h3>
-		<ul id="toDoList">
-
-		</ul>
+		<ul id="toDoList"></ul>
 	</div>
 	<div class="list" id="doneListContainer">
 		<h3 id='doneListHeader' ondragover="allowDrop(event)" ondrop="dropItem(event)"> Finished Tasks: </h3>
-		<ul id="doneList" > 
-
-		</ul>
+		<ul id="doneList" > </ul>
 	</div>
 </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script type="text/javascript" src="/onLoad"></script>
+<script type="text/javascript" src="/clientLists"></script>
 <script type="text/javascript" src="/ToDoJs"></script>
 <script type="text/javascript" src="/draggableJs"></script>
-<script type="text/javascript" src="/getListsForServer"></script>
+
 </html>

@@ -1,38 +1,24 @@
 var toDoList = document.getElementById('toDoList');
 var doneList = document.getElementById('doneList');
-var submit = document.getElementById('submit')
-//this gets data on load through an object on the sever
-var xmlhttp = new XMLHttpRequest();
-var url = "/data";
-xmlhttp.onreadystatechange = function() {
-  if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-    var serverData = xmlhttp.responseText;
-    var toDoData = JSON.parse(serverData).toDo;
-    var doneData = JSON.parse(serverData).done;
-    for(var i = 0; i < toDoData.length; i++){
- //     console.log(toDoData[i])
-      addItem(toDoData[i], 'toDoList');
-    }
-    for(var i = 0; i < doneData.length; i++){
-//      console.log(doneData[i])
-      addItem(doneData[i], 'doneList');
-    }    
-  }
-};
-xmlhttp.open("GET", url, true);
-xmlhttp.send();
+var submit = document.getElementById('submit');
+var formData = document.getElementById('formData');
+
+//Add the new item and then reset the value of the input
+//post the DOM lists up to the server to give the new info
+function submission(){
+  addItem();
+  newTask.value = '';
+  sortData('post',clientList());
+}
 //this list expects that (the this of the clicked on element)
 //it will move the element from one list to the other
 function changeList(event){
-    console.log('hi');
     var that = event.target
   	var list = whereInLists(event.target).list
   	var place = whereInLists(event.target).place
   	if(list.id === 'toDoList'){var otherList = document.getElementById('doneList')}
   	else{var otherList = document.getElementById('toDoList')}
   	otherList.appendChild(list.childNodes[place]);
-
-    console.log(otherList);
 }
 //whereInLists expects That (that = this) as its argument
 //the output will be an object.list (which list the clicked item is in)
@@ -62,26 +48,31 @@ function whereInLists(that){
 }
 //this adds a new to do list item to the list
 function addItem(x, list){
-
 	var li = document.createElement('li');
 	var newTask = document.getElementById('newTask');
-	li.className = 'listItem'
-  if (list == false || list === 'toDoList'){
+  //sort to needed list if a list is passed as an argument else put it on toDoList
+  if (list === 'toDoList'){
 	  toDoList.appendChild(li);
   };
   if (list === 'doneList') {
     doneList.appendChild(li);
   }
+  if (list == undefined) {
+    if(newTask.value === ''){return}
+    else{toDoList.appendChild(li);}
+  }
   //if there is no value let the inner html go through the passed argument
   //this is intended to be coming from the storred data on load
-  if (newTask.value == false){li.innerHTML = x}
-  else{li.innerHTML = newTask.value;}
+  if (newTask.value === ''){li.innerHTML = x}
+  else{
+    li.innerHTML = newTask.value;
+    console.log('pulled from input')
+  }
+  //make it draggable
 	li.onclick = changeList;
 	li.draggable = true; 
 	li.ondragstart = dragItem;
 	li.ondragover = allowDrop;
 	li.ondrop = dropItem;
 }
-
-
-submit.onclick = addItem;
+submit.onclick = submission;
