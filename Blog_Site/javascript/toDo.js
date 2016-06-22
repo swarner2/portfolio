@@ -15,6 +15,11 @@ function changeList(event){
     var that = event.target
     var obj = whereInLists(that);
     var list = document.getElementById(obj.list);
+    //if right div is clicked
+    if(that.className === "deleteButton" || that.parentElement.id === 'divRight'){
+        list.removeChild(list.childNodes[obj.place]);
+        return;
+    }
   	if(obj.list === 'toDoList'){var otherList = document.getElementById('doneList')}
   	else{var otherList = document.getElementById('toDoList')}
     //console.log(obj)
