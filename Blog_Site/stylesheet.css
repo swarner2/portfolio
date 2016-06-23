@@ -55,8 +55,10 @@ li div{
     display: inline-block;
 }
 #doneList {
-	text-decoration: line-through;
 	color: grey;
+}
+#doneList p {
+	text-decoration: line-through;
 }
 .list{
 	margin: auto;
