@@ -1,29 +1,14 @@
-$(document).ready(function() {sortData('get');});
+$(document).ready(function() {sortData('get','/data');});
 
 function streamData() {
     setInterval(function(){ sortData(); }, 3000);
 }
 //streamData();
-
-var postData = function(){
-  $.post('/data', clientList(), function(data,status){
-    console.log(data);
-    $("#toDoList").empty();
-    $("#doneList").empty();
-    for(var i = 0; i < data.toDoList.length; i++){
-//      console.log(data.toDoList[i])
-      addItem(data.toDoList[i], 'toDoList');
-    }
-    for(var i = 0; i < data.doneList.length; i++){
-//      console.log(data.doneList[i])
-      addItem(data.doneList[i], 'doneList');
-    }  
-    return;   
-  });
-}  
-
-var sortData = function(action, upload){
-  $[action]('/data',upload, function(data,status){
+//sortData requires the post or get as the first
+//the desired path in the second
+//if you want to upload information use the third
+var sortData = function(action, path, upload){
+  $[action](path,upload, function(data,status){
       //console.log(data.toDoList);
       $("#toDoList").empty();
       $("#doneList").empty();
@@ -38,8 +23,7 @@ var sortData = function(action, upload){
         for(var i = 0; i < data.doneList.length; i++){
           addItem(data.doneList[i], 'doneList');
         }
-      }  
-      return;   
+      }
+      return;
   })
 }
-

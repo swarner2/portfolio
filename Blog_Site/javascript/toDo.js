@@ -7,7 +7,7 @@ var submit = document.getElementById('submit');
 function submission(){
   addItem();
   newTask.value = '';
-  sortData('post',clientList());
+  sortData('post','/data',clientList());
 }
 //this list expects that (the this of the clicked on element)
 //it will move the element from one list to the other

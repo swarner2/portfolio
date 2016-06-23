@@ -20,6 +20,15 @@ app.post('/data', function (req, res) {
 	res.send(listData)
 });
 
+app.post('/close', function(req, res){
+	listData = req.body;
+	fs.writeFile('data.txt', JSON.stringify(listData), function (err) {
+	  if (err) return console.log(err);
+	  console.log('listData > data.txt');
+	});
+
+});
+
 var port = 8080;
 app.listen(port, function () {
   console.log('Example app listening on port ' + port + '!');
