@@ -39,12 +39,12 @@ function whereInLists(that){
     var data = {};
     if (that.id === 'toDoListHeader') {
       data.fromHeader = true;
-      data.list = document.getElementById('toDoList');
+      data.list = 'toDoList';
       return data
     }
     if (that.id === 'doneListHeader') {
       data.fromHeader = true;
-      data.list = document.getElementById('doneList');
+      data.list = 'doneList';
       return data
     }
     if (!data.fromHeader){
