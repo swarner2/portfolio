@@ -11,20 +11,27 @@ var routes = require('./routes.js');
 var listData = require('./listData.js');
 
 app.get('/data', function (req, res) {
-//	console.log(listData)
- 	res.send(listData);
+	fs.readFile('data.txt', 'utf8', function (err, data) {
+	  if (err) throw err;
+		console.log('sending listData from GET... ')
+		console.log(JSON.parse(data));
+	  res.send(JSON.parse(data));
+	});
 });
 
 app.post('/data', function (req, res) {
 	listData = req.body;
 	res.send(listData)
+	console.log('sending listData from POST... ')
+	console.log(listData)
 });
 
 app.post('/close', function(req, res){
 	listData = req.body;
 	fs.writeFile('data.txt', JSON.stringify(listData), function (err) {
 	  if (err) return console.log(err);
-	  console.log('listData > data.txt');
+	  console.log('listData > data.txt...');
+		console.log(listData)
 	});
 
 });
