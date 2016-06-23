@@ -4,6 +4,10 @@ function streamData() {
     setInterval(function(){ sortData(); }, 3000);
 }
 //streamData();
+//When the window closes send data to the server to be saved
+$(window).on("beforeunload", function() {
+    sortData('post','/close',clientList());
+});
 //sortData requires the post or get as the first
 //the desired path in the second
 //if you want to upload information use the third
