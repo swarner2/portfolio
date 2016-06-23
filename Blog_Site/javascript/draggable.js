@@ -61,7 +61,7 @@ function dropItem(event) {
     alert('moving up')
     destinationList.insertBefore(dragged,droppedOn);
   }
-
+  sortData('post','/data',clientList());
 }
 function allowDrop(event) {
     event.preventDefault();

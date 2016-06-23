@@ -6,7 +6,7 @@ function streamData() {
 //streamData();
 //When the window closes send data to the server to be saved
 $(window).on("beforeunload", function() {
-    sortData('post','/close',clientList());
+    sortData('post','/save',clientList());
 });
 //sortData requires the post or get as the first
 //the desired path in the second

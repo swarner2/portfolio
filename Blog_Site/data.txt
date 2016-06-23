@@ -1,1 +1,1 @@
-{"toDoList":["cheese"],"doneList":["eggs","milk"]}
+{"toDoList":["Start mango server","Make site responsive based on device","Add an edit button"]}

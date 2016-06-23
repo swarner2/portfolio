@@ -25,12 +25,14 @@ function changeList(event){
     //if right div is clicked
     if(that.className === "deleteButton" || that.parentElement.id === 'divRight'){
         list.removeChild(list.childNodes[obj.place]);
+        sortData('post','/data',clientList());
         return;
     }
   	if(obj.list === 'toDoList'){var otherList = document.getElementById('doneList')}
   	else{var otherList = document.getElementById('toDoList')}
     //console.log(obj)
   	otherList.appendChild(list.childNodes[obj.place]);
+    sortData('post','/data',clientList());
 }
 //whereInLists expects That (that = this) as its argument
 //the output will be an object.list (which list the clicked item is in)
