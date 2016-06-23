@@ -1,6 +1,7 @@
 var toDoList = document.getElementById('toDoList');
 var doneList = document.getElementById('doneList');
 var submit = document.getElementById('submit');
+var inputField = document.getElementById('newTask');
 
 //Add the new item and then reset the value of the input
 //post the DOM lists up to the server to give the new info
@@ -8,6 +9,12 @@ function submission(){
   addItem();
   newTask.value = '';
   sortData('post','/data',clientList());
+}
+function keyPress(event){
+    if (event.which === 13) {
+      submission();
+       console.log('you hit enter')
+    }
 }
 //this list expects that (the this of the clicked on element)
 //it will move the element from one list to the other
@@ -107,3 +114,4 @@ function addItem(x, list){
 //  li.innerHTML = li.innerHTML + deleteButton;
 }
 submit.onclick = submission;
+newTask.onkeypress = keyPress;
