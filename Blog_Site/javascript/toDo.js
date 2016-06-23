@@ -41,12 +41,10 @@ function whereInLists(that){
       return data
     }
     if (!data.fromHeader){
-      var list = document.getElementById(findListParent(that));
-      data.list = findListParent(that);
+      var list = findParent(that, 'UL');
+      data.list = findParent(that, 'UL').id;
       //reset that to the list element
-      while (that.tagName !== 'LI') {
-        that = that.parentElement;
-      }
+      that = findParent(that, 'LI');
       for(var i = 0; i < list.childNodes.length; i++){
           if(list.childNodes[i] === that){
             data.place = i;
@@ -58,18 +56,11 @@ function whereInLists(that){
 //used to find the parent list no matter what child is clicked on
 //returns the id of the parent list
 //must have the event.target passed as that
-function findListParent(that){
-  var result;
-  function goUpOne(that){
-    var parent = that.parentElement
-    if (parent.id !== 'toDoList' && parent.id !== 'doneList'){
-      return goUpOne(parent);
-    }
-    else if (parent.id === 'toDoList' || parent.id === 'doneList'){
-      return parent.id;
-    }
-  };
-  return goUpOne(that);
+function findParent(that, tag){
+  while(that.tagName !== tag || that.tagName === 'html'){
+    that = that.parentElement;
+  }
+  return that
 }
 //this adds a new to do list item to the list
 function addItem(x, list){
