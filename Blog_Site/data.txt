@@ -1,1 +1,1 @@
-{"toDoList":["connect mongoJS to to do list","Add an edit button","Make site responsive based on device","restFUL api??"],"doneList":["fix save bug on add new task","join meetup groups","Start mango server"]}
+{"toDoList":["mlab","connect mongoJS to to do list","Add an edit button","Make site responsive based on device","restFUL api??","jade ???","mlab/mongo tutorial http://zellwk.com/blog/crud-express-mongodb/","Start mango server"],"doneList":["fix save bug on add new task","join meetup groups","make update function for mongoose js"]}

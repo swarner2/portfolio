@@ -1,4 +1,5 @@
 module.exports = function(app){
+/*
   var mongoose = require('mongoose');
   mongoose.connect('mongodb://localhost/test');
   var db = mongoose.connection;
@@ -38,4 +39,5 @@ module.exports = function(app){
     };
     update("toDo", ["changed to do list", 2])
   });
+  */
 }

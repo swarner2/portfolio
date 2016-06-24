@@ -10,8 +10,6 @@ var routes = require('./routes.js');  routes(app);
 var database = require('./db.js');	database(app);
 var listData = require('./listData.js');
 
-
-
 app.get('/data', function (req, res) {
 	fs.readFile('data.txt', 'utf8', function (err, data) {
 	  if (err) throw err;

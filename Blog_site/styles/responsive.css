@@ -1,3 +1,14 @@
+@media screen and (max-device-width: 600px) {
+ body { background-color:black; }
+
+ header { margin-bottom:80px;}
+ .list { width:75%; font-size:25px; }
+ li {padding-top: 6px; padding-bottom: 6px;}
+ #inputForm { width:85%; left:9%;}
+ button {font-size: 25px; }
+ #newTask { font-size:26px; }
+
+}
 @media screen and (max-width: 570px) {
     header { margin-bottom:120px; }
     #submit {
