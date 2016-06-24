@@ -14,18 +14,28 @@ module.exports = function(app){
   	List.find({}, function(err, lists){
   		if(err) throw err;
   		if (lists.length === 0) {
-  			var toDo = new List({ listName:"toDo", tasks:['click to move to the finished list!'] });
-  			var done = new List({ listName:"done", tasks:['click the X to delete me!'] });
-  			var saveList = function(listName){
-  				listName.save(function(err){ if(err) throw err;
-  					console.log(listName + " : saved!")
+        console.log('making new lists................................................................')
+
+  			var saveList = function(listName, tasksList){
+            var list = new List({ "name": listName, "tasks": tasksLists});
+  			    list.save(function(err){ if(err) throw err;
+  				  console.log(listName + " : saved!");
   				});
   			}
-  			saveList(toDo);
-  			saveList(done);
+  			saveList("toDo", ["click to move!!!!"]);
+  			saveList("done", ["X to delete ---->"]);
   		}
-  		console.log(lists);
-  	});
-
+      console.log(lists)
+  	})
+    //updates the specified list with the specified new tasks
+    function update(listName, tasksList){
+      console.log("Updating " + listName + " .................................................................")
+      List.findOneAndUpdate({ name: listName }, { tasks: tasksList }, function(err, list) {
+        if (err) throw err;
+        // we have the updated user returned to us
+        console.log(list);
+      });
+    };
+    update("toDo", ["changed to do list", 2])
   });
 }
