@@ -5,14 +5,15 @@ module.exports = function(app){
 	var scripts = '/javascript'
 	var styles = '/styles'
 	var	routes = {
-		'/' 			: '/home.html',
-		'/toDo' 		: '/toDo.html',
+		'/' 					: '/home.html',
+		'/toDo' 		  : '/toDo.html',
 		'/toDoJs' 		: scripts + '/toDo.js',
-		'/draggableJs' 	: scripts + '/draggable.js',
-		'/clientLists'	: scripts + '/clientLists.js',
-		'/onLoad'		: scripts + '/onLoad.js',
+		'/draggableJs': scripts + '/draggable.js',
+		'/clientLists': scripts + '/clientLists.js',
+		'/onLoad'			: scripts + '/onLoad.js',
 		'/stylesheet'	: styles + '/stylesheet.css',
-		'/responsive' : styles + '/responsive.css'
+		'/responsive' : styles + '/responsive.css',
+		'/db'					: '/db.js'
 	};
 	var makeRoute = function(route, file){
 		app.get(route, function (req, res) {
