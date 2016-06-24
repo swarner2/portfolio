@@ -1,1 +1,1 @@
-{"toDoList":["Start mango server","Make site responsive based on device","Add an edit button"]}
+{"toDoList":["Start mango server","Add an edit button","Make site responsive based on device","json feed to load random images as background (beware of nsfw)","fix save bug on add new task"],"doneList":["asdf"]}

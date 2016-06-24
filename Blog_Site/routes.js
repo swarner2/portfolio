@@ -3,6 +3,7 @@ module.exports = function(app){
 	//folder structure
 	var currPath =  path.join(__dirname) ;
 	var scripts = '/javascript'
+	var styles = '/styles'
 	var	routes = {
 		'/' 			: '/home.html',
 		'/toDo' 		: '/toDo.html',
@@ -10,7 +11,8 @@ module.exports = function(app){
 		'/draggableJs' 	: scripts + '/draggable.js',
 		'/clientLists'	: scripts + '/clientLists.js',
 		'/onLoad'		: scripts + '/onLoad.js',
-		'/stylesheet'	: '/stylesheet.css',
+		'/stylesheet'	: styles + '/stylesheet.css',
+		'/responsive' : styles + '/responsive.css'
 	};
 	var makeRoute = function(route, file){
 		app.get(route, function (req, res) {

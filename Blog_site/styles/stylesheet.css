@@ -2,19 +2,6 @@ body{
 	box-sizing: border-box;
 	font-family: "Comic Sans MS", cursive, sans-serif;
 }
-
-@media screen and (max-width: 570px) {
-    #submit {
-			display: block;
-			width: 100%;
-			margin-left: -5px;
-			margin-bottom: 10px;
-    }
-		#newTask{
-			width: 100%;
-			margin-left: -5px;
-		}
-}
 h1{
 	background-color: grey;
 	color: white;
