@@ -6,21 +6,23 @@
 <title>To Do List App</title>
 </head>
 <body>
-<h1>Tasks</h1>
-<div id="inputForm">
+	<header>
+		<h1>Tasks</h1>
+	</header>
+	<div id="inputForm">
 		<input type="text" name="newTask" id="newTask" autocomplete="off" autofocus="on">
-	<button type ="submit" name="submitButton" id='submit' >Add Task</button>
-</div>
-<div id="listContainer">
-	<div class="list" id="toDoListContainer" >
-		<h3 id='toDoListHeader' ondragover="allowDrop(event)" ondrop="dropItem(event)"> To Do: </h3>
-		<ul id="toDoList"></ul>
+		<button type ="submit" name="submitButton" id="submit" >Add Task</button>
 	</div>
-	<div class="list" id="doneListContainer">
-		<h3 id='doneListHeader' ondragover="allowDrop(event)" ondrop="dropItem(event)"> Finished Tasks: </h3>
-		<ul id="doneList" > </ul>
+	<div id="listContainer">
+		<div class="list" id="toDoListContainer" >
+			<h3 id="toDoListHeader" ondragover="allowDrop(event)" ondrop="dropItem(event)"> To Do: </h3>
+			<ul id="toDoList"></ul>
+		</div>
+		<div class="list" id="doneListContainer">
+			<h3 id="doneListHeader" ondragover="allowDrop(event)" ondrop="dropItem(event)"> Finished Tasks: </h3>
+			<ul id="doneList" > </ul>
+		</div>
 	</div>
-</div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script type="text/javascript" src="/onLoad"></script>

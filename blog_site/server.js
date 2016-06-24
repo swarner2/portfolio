@@ -19,6 +19,9 @@ app.get('/data', function (req, res) {
 app.post('/data', function (req, res) {
 	listData = req.body;
 	res.send(listData)
+	fs.writeFile('data.txt', JSON.stringify(listData), function (err) {
+		if (err) return console.log(err);
+	});
 });
 app.post('/save', function(req, res){
 	listData = req.body;

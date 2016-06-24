@@ -1,4 +1,5 @@
 @media screen and (max-width: 570px) {
+    header { margin-bottom:120px; }
     #submit {
 			display: block;
 			width: 100%;

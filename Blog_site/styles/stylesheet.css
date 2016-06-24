@@ -1,16 +1,21 @@
 body { box-sizing:border-box; font-family:"Comic Sans MS", cursive, sans-serif; }
+header { margin-bottom:60px; }
 h1 { background-color:grey; color:white; padding-left:12px; padding-bottom:3px; margin:0px; }
-#inputForm { margin:auto; width:60%; padding-left:10px; }
+
+#inputForm { left:20%; top:60px; width:60%; position:fixed;}
 input[type=text] { width:55%; padding:12px 20px; margin:8px ; display:inline-block; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; }
 button { background-color:#008CBA; border:none; color:white; padding:9px 25px; width:35%; border-radius:4px; text-align:center; font-family:"Comic Sans MS", cursive, sans-serif; display:inline-block; font-size:16px; }
+
 ul { list-style:none; margin-right:30px; margin:0px; padding:0px; }
 .list { margin:auto; width:60%; border:rgba(100,100,100,0.25) 1px solid; border-top-left-radius:10px; border-top-right-radius:5px; }
 .list h3 { margin-top:0px; padding-left:12px; border-bottom:thin solid; color:white; border-top-left-radius:6px; border-top-right-radius:3px; background:#008CBA; margin-bottom:0px; }
 #doneList { color:grey; }
 #doneList p { text-decoration:line-through; }
 li { padding-left:20px; border-bottom:thin solid lightgrey; }
+
 #divLeft { float:none; width:83%; }
-li div {display:inline-block;}
-li p {margin:0px;}
+li div { display:inline-block; }
+li p { margin:0px; }
+
 #divRight { float:right; }
 .deleteButton { background-color:white; width:15px; padding:1px; height:20px; color:darkred; margin-top:auto; margin-bottom:auto; margin-right:5px; }
