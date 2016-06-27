@@ -20,5 +20,9 @@
 		#newTask{
 			width: 100%;
 			margin-left: -5px;
+
 		}
+    input[type=text]{
+      margin-right: -8px;
+    }
 }

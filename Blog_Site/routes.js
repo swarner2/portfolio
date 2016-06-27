@@ -2,17 +2,18 @@ module.exports = function(app){
 	var path = require('path');
 	//folder structure
 	var currPath =  path.join(__dirname) ;
+	var toDo = '/toDo'
 	var scripts = '/javascript'
 	var styles = '/styles'
 	var	routes = {
 		'/' 					: '/home.html',
-		'/toDo' 		  : '/toDo.html',
-		'/toDoJs' 		: scripts + '/toDo.js',
-		'/draggableJs': scripts + '/draggable.js',
-		'/clientLists': scripts + '/clientLists.js',
-		'/onLoad'			: scripts + '/onLoad.js',
-		'/stylesheet'	: styles + '/stylesheet.css',
-		'/responsive' : styles + '/responsive.css',
+		'/toDo' 		  : toDo + '/toDo.html',
+		'/toDoJs' 		: toDo + scripts + '/toDo.js',
+		'/draggableJs': toDo + scripts + '/draggable.js',
+		'/clientLists': toDo + scripts + '/clientLists.js',
+		'/onLoad'			: toDo + scripts + '/onLoad.js',
+		'/stylesheet'	: toDo + styles + '/stylesheet.css',
+		'/responsive' : toDo + styles + '/responsive.css',
 		'/db'					: '/db.js'
 	};
 	var makeRoute = function(route, file){
