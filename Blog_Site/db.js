@@ -1,5 +1,16 @@
 module.exports = function(app){
+
 /*
+  var db
+
+  MongoClient.connect('mongodb://samuelrwarner1@gmail.com:the1time@ds031792.mlab.com:31792/todo', (err, database) => {
+    if (err) return console.log(err)
+    db = database
+    app.listen(3000 , () => {
+      console.log('listening on 8080')
+    })
+  })
+
   var mongoose = require('mongoose');
   mongoose.connect('mongodb://localhost/test');
   var db = mongoose.connection;

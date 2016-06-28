@@ -7,8 +7,10 @@ var fs = require('fs')
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({ extended: true }));
 var routes = require('./routes.js');  routes(app);
+const MongoClient = require('mongodb').MongoClient
 var database = require('./db.js');	database(app);
 var listData = require('./listData.js');
+
 
 app.get('/data', function (req, res) {
 	fs.readFile('data.txt', 'utf8', function (err, data) {
@@ -29,6 +31,7 @@ app.post('/save', function(req, res){
 	  if (err) return console.log(err);
 	});
 });
+
 
 var port = 8080;
 app.listen(port, function () {
