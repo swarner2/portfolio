@@ -8,7 +8,6 @@ module.exports = function(app){
 	var styles = '/styles'
 	var	routes = {
 		'/' 						 : '/home.html',
-		'/db'						 : '/db.js',
 		'/toDo' 		  	 : toDo + '/toDo.html',
 		'/toDoJs' 			 : toDo + scripts + '/toDo.js',
 		'/draggableJs'	 : toDo + scripts + '/draggable.js',
