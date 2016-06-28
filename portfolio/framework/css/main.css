@@ -64,6 +64,13 @@ h1, h2, h3{
   padding: 10px;
   height: 150px;
   width: 200px;
+  padding-bottom: 8px;
+  margin-bottom: 2px;
+}
+.featured img:hover{
+    border-bottom: solid burlywood 2px;
+    height: 152px;
+    margin-bottom: 0px;
 }
 .featured div {
   padding-right: 10px;
