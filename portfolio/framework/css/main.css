@@ -19,12 +19,13 @@
 .col-11 {  width: 91.66%;}
 .col-12 {  width: 100%;}
 body{
-  background-image: url('../img/dark-website-backgrounds-6.jpg');
-  height: 105%;
+  background-image: url('http://www.freebiesgallery.com/wp-content/uploads/2012/08/dark-website-backgrounds-6.jpg');
+  background-size: cover;
+  height: 100%;
 }
 #wrapper{
   max-width: 960px;
-  background-color: beige;
+  background-color: cornsilk;
   height: 100%;
   padding: 20px;
   margin: auto;
@@ -36,6 +37,9 @@ header {
 header div {
   float: right;
   text-align: right;
+}
+header h3 {
+      border-bottom: solid burlywood 2px;
 }
 h1, h2, h3{
   margin-bottom: 10px;
