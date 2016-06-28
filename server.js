@@ -12,8 +12,10 @@ var db
 
 MongoClient.connect("mongodb://admin:the1time@ds031792.mlab.com:31792/todo", function (err, database) {
   if (err) return console.log(err)
+	var port = process.env.PORT || 8080;
+
   db = database
-  app.listen(8080, function (){
+  app.listen(port, function (){
     console.log('listening on 8080')
   });
 });
