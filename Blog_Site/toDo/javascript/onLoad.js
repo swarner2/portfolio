@@ -13,7 +13,9 @@ $(window).on("beforeunload", function() {
 //if you want to upload information use the third
 var sortData = function(action, path, upload){
   $[action](path,upload, function(data,status){
-      //console.log(data.toDoList);
+      //console.log(data)
+      //this is used to parse the way the server handles the document
+      if(data[0] !== undefined){data = data[0]};
       $("#toDoList").empty();
       $("#doneList").empty();
       if (data.toDoList !== undefined) {
