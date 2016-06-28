@@ -7,7 +7,7 @@ module.exports = function(app){
 	var scripts = '/javascript'
 	var styles = '/styles'
 	var	routes = {
-		'/' 						 : '/home.html',
+		'/' 						 : '/portfolio/framework/test.html',
 		'/toDo' 		  	 : toDo + '/toDo.html',
 		'/toDoJs' 			 : toDo + scripts + '/toDo.js',
 		'/draggableJs'	 : toDo + scripts + '/draggable.js',
@@ -17,6 +17,7 @@ module.exports = function(app){
 		'/responsive' 	 : toDo + styles + '/responsive.css',
 		'/portfolio'		 : portfolio + '/test.html',
 		'/port/css/main' : portfolio + '/css/main.css',
+		'/homeStyles/main' : '/homeStyles/main.css',
 	};
 	var makeRoute = function(route, file){
 		app.get(route, function (req, res) {
