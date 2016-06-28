@@ -32,8 +32,12 @@ app.post('/save', function(req, res){
 	});
 });
 
+var db
 
-var port = 8080;
-app.listen(port, function () {
-  console.log('Example app listening on port ' + port + '!');
-});
+MongoClient.connect("mongodb://admin:the1time@ds031792.mlab.com:31792/todo", function (err, database) {
+  if (err) return console.log(err)
+  db = database
+  app.listen(8080, function (){
+    console.log('listening on 8080')
+  })
+})
