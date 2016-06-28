@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 	app.use(bodyParser.urlencoded({ extended: true }));
 var routes = require('./routes.js');  routes(app);
 const MongoClient = require('mongodb').MongoClient
-var listData = require('./listData.js');
+var listData = {};
 var db
 
 MongoClient.connect("mongodb://admin:the1time@ds031792.mlab.com:31792/todo", function (err, database) {
