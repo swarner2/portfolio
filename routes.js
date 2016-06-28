@@ -17,7 +17,6 @@ module.exports = function(app){
 		'/responsive' 	 : toDo + styles + '/responsive.css',
 		'/portfolio'		 : portfolio + '/test.html',
 		'/port/css/main' : portfolio + '/css/main.css',
-		'/homeStyles/main' : '/homeStyles/main.css',
 	};
 	var makeRoute = function(route, file){
 		app.get(route, function (req, res) {
