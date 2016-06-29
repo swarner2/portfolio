@@ -17,6 +17,9 @@ module.exports = function(app){
 		'/responsive' 	 : toDo + styles + '/responsive.css',
 		'/portfolio'		 : portfolio + '/test.html',
 		'/port/css/main' : portfolio + '/css/main.css',
+		'/portfolio-background' : portfolio +'/img/dark-website-backgrounds-6.jpg',
+		'/forest'	: portfolio + '/img/forest.jpg',
+		'/toDoImg' : portfolio + '/img/toDoImg.png',
 	};
 	var makeRoute = function(route, file){
 		app.get(route, function (req, res) {
