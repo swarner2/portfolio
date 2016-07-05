@@ -1,3 +1,4 @@
+html {height: 100%;}
 body { box-sizing:border-box; font-family:"Comic Sans MS", cursive, sans-serif; background-image:url("http://wallpapercave.com/wp/lZUKAC2.jpg"); background-repeat:no-repeat; background-size:cover; }
 body#background { background: url("http://wallpapercave.com/wp/lZUKAC2.jpg") no-repeat 50% 50% fixed; background-size: cover; -moz-background-size: cover; -o-background-size: cover; -webkit-background-size: cover; }
 header { margin-bottom:60px; }
