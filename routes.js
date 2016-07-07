@@ -24,6 +24,8 @@ module.exports = function(app){
 		'/sentenceGen' :  '/sentenceGen/sentenceGen.html',
 			'/sentenceGenScript' : '/sentenceGen/sentenceGenScript.js',
 			'/sentenceGenStyle' : '/sentenceGen/style.css',
+			'/nodeLogo'	: portfolio + '/img/Node-JS-logo.png',
+			'/mongoLogo'	: portfolio + '/img/mongodb-logo.png',
 	};
 	var makeRoute = function(route, file){
 		app.get(route, function (req, res) {
