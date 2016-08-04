@@ -12,12 +12,12 @@ var dom = {
 //**********UTILITY FUNCTIONS*******************************************
 function checkConfig(obj){
 	var map = [];
-	
+
 	for(var key in obj){
 		if(obj[key].isOn){
 			map.push(key);
-		};
-	};
+		}
+	}
 	return map;
 }
 function random(obj){
@@ -26,45 +26,45 @@ function random(obj){
 		var map = [];
 		var objectLength = function(obj){
 			  var count = 0;
-			  for(key in obj){count++; map.push(key)}
+			  for(var key in obj){count++; map.push(key);}
 			  return count;
 		};
 		return map[Math.floor(Math.random() * objectLength(obj))];
-	};		
+	}
 	if( obj.constructor === Array){
 		return obj[Math.floor(Math.random() * (obj.length) ) ];}
-};
+}
 function checkWordType(word, type, action){
 	if(word[type] != true){ action();}
-};
+}
 function checkCaseUse(elementId){
 	return dom.id(elementId).addEventListener("click", changeIsOn, false);
 	function changeIsOn(){
-		grammarList[elementId]['isOn'] = this.checked;
+		grammarList[elementId].isOn = this.checked;
 	}
-	
+
 }
 function englishPluralNouns(word){
 	var dontAddS = false;
 	var exceptions={
-		'boy': true, 
+		'boy': true,
 		'human': true,
 		'walkway': true,
 		'money': true,
-		}
+	};
 	if(!(word in exceptions)){
-		if(word.match(/y$/)){ 
-			word = word.replace(/y$/, 'ies')
-			dontAddS = true;	
+		if(word.match(/y$/)){
+			word = word.replace(/y$/, 'ies');
+			dontAddS = true;
 			}
-		else if(word.match(/man$/)){ 
-			word = word.replace(/man$/, 'men')
+		else if(word.match(/man$/)){
+			word = word.replace(/man$/, 'men');
 			dontAddS = true;
 			}
 	}
-	if(!dontAddS){word = word + "s"}
-	return word
-};
+	if(!dontAddS){word = word + "s";}
+	return word;
+}
 //***************************************************************************
 //***************GLOBAL VARIABLES*************************************
 var word = "word";
@@ -72,7 +72,7 @@ var sentence = [];
 //*****************CONSTRUCTORS***************************************
 //***************************************************************************
 function Noun(dictEntry, meaning, types, chapter, section){
-	
+
 	this["firstDict"] = dictEntry.match(/^[a-zA-Z]+(?=,)/).join();
 	//Order Matters.  Gender must be in front of Declension to remove any of the info.
 	//For words that don't have a declared gender those are dealt with under the declension section.
@@ -102,17 +102,17 @@ function Noun(dictEntry, meaning, types, chapter, section){
 	this['decl'] = undefined;
 		if(dictEntry.match(/i$/)){
 			this['decl'] = '2nd';
-			if(this['gen'] == undefined){ 
+			if(this['gen'] == undefined){
 				if(dictEntry.match(/um(?=,)/)){this['gen'] = 'N'; }
 				else{ this['gen'] = 'M';}
 			}
 		}
 		if(dictEntry.match(/ae$/)){this['decl'] = '1st'}
 				if(this['gen'] == undefined){this['gen'] = 'F'; }
-			
+
 		if(dictEntry.match(/is$/)){this['decl'] = '3rd'}
 		if(dictEntry.match(/ei$/)){this['decl'] = '5th'}
-		if(dictEntry.match(/us$/)){this['decl'] = '4th'}		
+		if(dictEntry.match(/us$/)){this['decl'] = '4th'}
 	this['stem'] = undefined;
 		if(this['decl'] == '2nd'){
 			if(dictEntry.match(/[a-z](?=,)/).join() == 'r') {
@@ -151,13 +151,13 @@ function Verb(dictEntry, meaning, types){
 		}
 	this['meaning'] = meaning;
 	this['types'] = types;
-	this['transitive'] = true; 
+	this['transitive'] = true;
 	this['intransitive'] = false;
 	this['linking'] = false;
 		for(var i = 0; i < Verb.arguments.length; i++){
 			if(Verb.arguments[i] == 'intransitive') {this["intransitive"] = true};
 			if(Verb.arguments[i] == 'linking') {this['linking'] = true};
-	};		
+	};
 		if(this['intransitive'] == true){this['transitive'] = false;}
 };
 //***************************************************************************
@@ -215,14 +215,14 @@ var grammarList = {
 					var translation;
 						if(number == 'sg'){translation = "the " + nounUse}
 						if(number == 'pl'){translation = "the " + englishPluralNouns(nounUse)}
-							else{translation = "the " + nounUse}	
+							else{translation = "the " + nounUse}
 				use.translation = translation;
-				use.word = 'default ' + nounUse; 
+				use.word = 'default ' + nounUse;
 				use.meaning = nounUse;
 			}
 			//************IF CHOSEN*****************************************
 			if(checkConfig(grammarList).join("").match(nounUse)){
-//				console.log(nounUse + ' chosen')		
+//				console.log(nounUse + ' chosen')
 				use.word = dictionary["nouns"][random(dictionary["nouns"])];
 					var word = use.word;
 				use.decl =  word["decl"] + word["gen"];
@@ -239,9 +239,9 @@ var grammarList = {
 					else{translation = "the " + englishPluralNouns(word["meaning"])};
 				use.translation = translation;
 				use.meaning= word["meaning"];
-				use.types= word["types"];			
+				use.types= word["types"];
 			}
-			return word;		
+			return word;
 	},
 	'subject': {
 		nounCase: "nominative",
@@ -263,15 +263,15 @@ var grammarList = {
 		isOn: dom.id('prepositionAblative').checked,
 		check: checkCaseUse('prepositionAblative'),
 		create: function(){
-			var prep = grammarList["prepositionAblative"];	
+			var prep = grammarList["prepositionAblative"];
 			delete prep.preposition, prep.form, prep.translation, prep.meaning, prep.word, prep.decl, prep.gender, prep.number, prep.ending, prep.types;
 			if(checkConfig(grammarList).join("").match("prepositionAblative") == null){
 				prep.translation = " ";
-				prep.word = 'default ' + 'prepostionAblative'; 
+				prep.word = 'default ' + 'prepostionAblative';
 				prep.meaning = " ";
 				prep.form = " ";
 			}
-			if(checkConfig(grammarList).join("").match("prepositionAblative")){			
+			if(checkConfig(grammarList).join("").match("prepositionAblative")){
 				prep.preposition = random(dictionary['prepositions']);
 					while(!(dictionary['prepositions'][prep.preposition]['ablative'])){
 						prep.preposition = random(dictionary['prepositions']);
@@ -288,20 +288,20 @@ var grammarList = {
 							for(var j = 0; j < nounTypes.length; j++){
 								if(prepTypes[i] == nounTypes[j]){isType = true;}
 							}
-						}				
+						}
 					}
 				prep.form = prep.preposition + " " + prep.form;
 				prep.translation = dictionary['prepositions'][prep.preposition]['meaning']  + " " + prep.translation
 			}
 		},
-		
+
 	},
 	"verb" : {
 		isOn: dom.id('verb').checked,
 		check: checkCaseUse('verb'),
 //		number: grammarList['subject']['number'],
 		create: function(type, transitive){
-		
+
 			//*************MAIN SCOPE VARIABLES****************
 			var verb = grammarList['verb'];
 			var number = grammarList['subject']['number']
@@ -320,7 +320,7 @@ var grammarList = {
 					if(number == 'sg'){verb.translation = verb.meaning + "s"}
 					if(number == 'pl'){verb.translation = verb.meaning}
 //				console.log(verb.word + " verb created")
-			}	
+			}
 			if(checkConfig(grammarList).join("").match('verb')){
 				verb.word = dictionary["verbs"][random(dictionary["verbs"])];
 					var word = verb.word
@@ -350,7 +350,7 @@ var grammarList = {
 			}
 			return word;
 		}
-		
+
 	},
 }
 var dictionary = {
@@ -420,7 +420,7 @@ vocabulum	:  new Noun(	'vocabulum, -i',	'(vo) word',	'thing',	'I',	3	),
 		video : 	new Verb("video, videre, vidi, visus", "see", ['perception']),
 		amo :	new Verb('amo, -are, -avi, -atus', 'love', ['feeling']),
 		habeo :	new Verb('habeo, habere, habui, habitus', 'have', ['has']),
-		ago :		new Verb('ago, agere, egi, actus', 'act upon', ['action']), 
+		ago :		new Verb('ago, agere, egi, actus', 'act upon', ['action']),
 		capio :	new Verb('capio, capere, cepi, captus', 'capture', ['action']),
 		audio :	new Verb('audio, audire, audivi, auditus', 'hear', ['perception']),
 accuso	: new Verb(	'accuso, accusare, accusavi, accusatus',	'accuse',	[' ']		),
@@ -449,10 +449,7 @@ verbero	: new Verb(	'verbero, verberare, verberavi, verberatus',	'beat',	[' ']		
 video	: new Verb(	'video, vidEre, vidi, visus',	'see',	[' ']		),
 voco	: new Verb(	'voco, vocare, vocavi, vocatus',	'call',	[' ']		),
 
-
-
-
-	},	
+	},
 	prepositions:{
 		'in' : {
 			stem: 'in',
@@ -477,8 +474,8 @@ voco	: new Verb(	'voco, vocare, vocavi, vocatus',	'call',	[' ']		),
 			meaning: 'without',
 			'ablative' : true,
 			types : ['person']
-		},		
-		
+		},
+
 	},
 }
 function createSentence(){
@@ -510,7 +507,7 @@ function createSentence(){
 		data.push(grammarList[englishOrder[i]]["translation"]);
 		sentence.push(grammarList[latinOrder[i]]["form"]);
 //				console.log("the sentence section : " + i + " was "+ grammarList[englishOrder[i]]["translation"]);
-	}	
+	}
 		english.innerHTML = data.join(" ")
 //		console.log("the sentence was "+ data.join(" "))
 	return data;

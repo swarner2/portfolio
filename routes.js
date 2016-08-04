@@ -2,10 +2,10 @@ module.exports = function(app){
 	var path = require('path');
 	//folder structure
 	var currPath =  path.join(__dirname) ;
-	var toDo = '/toDo'
-	var portfolio = '/portfolio/framework'
-	var scripts = '/javascript'
-	var styles = '/styles'
+	var toDo = '/toDo';
+	var portfolio = '/portfolio/framework';
+	var scripts = '/javascript';
+	var styles = '/styles';
 	var	routes = {
 		'/' 						 : '/portfolio/framework/test.html',
 		'/toDo' 		  	 : toDo + '/toDo.html',
@@ -24,8 +24,6 @@ module.exports = function(app){
 		'/sentenceGen' :  '/sentenceGen/sentenceGen.html',
 			'/sentenceGenScript' : '/sentenceGen/sentenceGenScript.js',
 			'/sentenceGenStyle' : '/sentenceGen/style.css',
-			'/nodeLogo'	: portfolio + '/img/Node-JS-logo.png',
-			'/mongoLogo'	: portfolio + '/img/mongodb-logo.png',
 	};
 	var makeRoute = function(route, file){
 		app.get(route, function (req, res) {
@@ -33,6 +31,6 @@ module.exports = function(app){
 		});
 	};
 	for (var key in routes){
-		makeRoute(key,routes[key])
+		makeRoute(key,routes[key]);
 	}
-}
+};

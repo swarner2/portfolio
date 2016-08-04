@@ -15,21 +15,21 @@ var sortData = function(action, path, upload){
   $[action](path,upload, function(data,status){
       //console.log(data)
       //this is used to parse the way the server handles the document
-      if(data[0] !== undefined){data = data[0]};
+      if(data[0] !== undefined){data = data[0];}
       $("#toDoList").empty();
       $("#doneList").empty();
       if (data.toDoList !== undefined) {
-        console.log('toDoList: not undefined')
+        console.log('toDoList: not undefined');
         for(var i = 0; i < data.toDoList.length; i++){
           addItem(data.toDoList[i], 'toDoList');
       }
       }
       if (data.doneList !== undefined){
-        console.log('doneList: not undefined')
+        console.log('doneList: not undefined');
         for(var i = 0; i < data.doneList.length; i++){
           addItem(data.doneList[i], 'doneList');
         }
       }
       return;
-  })
-}
+  });
+};
