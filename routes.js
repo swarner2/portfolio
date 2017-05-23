@@ -3,11 +3,12 @@ module.exports = function(app){
 	//folder structure
 	var currPath =  path.join(__dirname) ;
 	var toDo = '/toDo';
-	var portfolio = '/portfolio/framework';
+	var portfolio = '/framework';
+	var songIntervals = '/songIntervals';
 	var scripts = '/javascript';
 	var styles = '/styles';
 	var	routes = {
-		'/' 						 : '/portfolio/framework/test.html',
+		'/' 						 : portfolio + '/test.html',
 		'/toDo' 		  	 : toDo + '/toDo.html',
 			'/toDoJs' 			 : toDo + scripts + '/toDo.js',
 			'/draggableJs'	 : toDo + scripts + '/draggable.js',
@@ -24,6 +25,10 @@ module.exports = function(app){
 		'/sentenceGen' :  '/sentenceGen/sentenceGen.html',
 			'/sentenceGenScript' : '/sentenceGen/sentenceGenScript.js',
 			'/sentenceGenStyle' : '/sentenceGen/style.css',
+		'/songIntervals' : songIntervals + '/index.html',
+			'/myApp'	: songIntervals + "/myApp.js",
+			'/songSheetDir': songIntervals + "/songSheetDir.js",
+			'/songInputDir': songIntervals + "/songInputDir.js",
 	};
 	var makeRoute = function(route, file){
 		app.get(route, function (req, res) {
