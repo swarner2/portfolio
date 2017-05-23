@@ -1,13 +1,15 @@
 const app = angular.module('myApp', [])
 
 .controller('myCtrl', ['$scope', function($scope){
+    $scope.sectionTypes=['Verse','Chorus','Bridge','Instrumental', 'Tag', 'Pre-Chorus'];
+
     $scope.song = {
-      key : "B",
+      key : "C",
       name : 'New Song',
       majorMinor: 'major',
       sections :  {
         Verse: {
-          chords : ['B','E'],
+          chords : ['C','G'],
           intervals : ["I", "IV"]
         }
       },
@@ -24,7 +26,6 @@ const app = angular.module('myApp', [])
       let keyMajorMinor = ''
       if ($scope.song.majorMinor === 'major') {
          steps = majorSteps;
-         console.log('major: ',steps);
       }
       else {
          steps = minorSteps;
@@ -112,5 +113,8 @@ const app = angular.module('myApp', [])
       }
       $scope.song.scale = $scope.getKeyNotes($scope.song.key);
       $scope.song.intervals = $scope.getIntervals($scope.song.scale);
+    }
+    $scope.addToNewSectionName = function(sectionType){
+      $scope.newSectionName = sectionType;
     }
 }])
