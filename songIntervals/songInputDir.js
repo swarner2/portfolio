@@ -4,7 +4,7 @@ app.directive("songInputDir",function(){
     `
       <div>
         <h3>Input</h3>
-
+        Name: <input type="text" ng-model="song.name" ng-change="changeTitle()"> <br>
         Key: <input type="text" ng-model="song.key" ng-change=updateScale()>
         <input type="Button" value={{song.majorMinor}} ng-click="toggleMajorMinor()">
         <br>
