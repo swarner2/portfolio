@@ -1,26 +1,49 @@
 const app = angular.module('myApp', [])
 
 .controller('myCtrl', ['$scope', function($scope){
-    $scope.getKeynotes = function(key){
+    $scope.song = {
+      key : "B",
+      majorMinor: 'major',
+      sections :  {
+        Verse: {
+          chords : ['B','E'],
+          intervals : ["I", "IV"]
+        }
+      },
+    };
+    $scope.getKeyNotes = function(key){
+      key = key.toUpperCase();
       let notes = ["A","A#","B","C","C#","D","D#","E","F","F#","G","G#","A","A#","B","C","C#","D","D#","E","F","F#","G","G#"]
       let majorSteps = [2,2,1,2,2,2,1,2,2,1];
-    //  let minorSteps = [2,1,2,2,1,1,2]
+      let minorSteps = [2,1,2,2,1,2,2,2,1,2]
+      let steps = []
+      let keyMajorMinor = ''
+      if ($scope.song.majorMinor === 'major') {
+         steps = majorSteps;
+         console.log('major: ',steps);
+      }
+      else {
+         steps = minorSteps;
+         keyMajorMinor = 'm'
+         console.log('minor: ',steps);
+      }
       const keyNotes = []
+
       keyNotes.push(
         {
           note: notes[notes.indexOf(key)],
-          majorMinor: ''
+          majorMinor: keyMajorMinor
         }
       )
       for (var i = 0; keyNotes.length < 7; i++) {
         let lastNote = keyNotes[keyNotes.length - 1].note
         let majorMinor = '';
-        if (majorSteps[1] + majorSteps[2] === 3) {
+        if (steps[1] + steps[2] === 3) {
           majorMinor = 'm';
         }
         keyNotes.push(
           {
-            note: notes[notes.indexOf(lastNote)  + majorSteps.shift()],
+            note: notes[notes.indexOf(lastNote)  + steps.shift()],
             majorMinor: majorMinor
           }
         )
@@ -39,16 +62,8 @@ const app = angular.module('myApp', [])
       return intervalMap;
     }
 
-    $scope.song = {
-      key : "B",
-      sections :  {
-        verse: {
-          chords : ['B','E'],
-          intervals : ["I", "IV"]
-        }
-      },
-    };
-    $scope.song.scale = $scope.getKeynotes($scope.song.key);
+
+    $scope.song.scale = $scope.getKeyNotes($scope.song.key);
     $scope.song.intervals = $scope.getIntervals($scope.song.scale);
     $scope.song.sectionIntervals = function(section){
       return section.map(function(chord){
@@ -56,15 +71,14 @@ const app = angular.module('myApp', [])
       })
     }
     $scope.addSection = function(){
-        console.log($scope.newSectionChords.split(' '));
         $scope.song.sections[$scope.newSectionName] = {
           chords:  $scope.newSectionChords.split(' '),
           intervals : $scope.song.sectionIntervals($scope.newSectionChords.split(' '))
         }
-        console.log($scope.song.sections);
+        $scope.newSectionChords = '';
     }
     $scope.updateScale = function(){
-      $scope.song.scale = $scope.getKeynotes($scope.song.key);
+      $scope.song.scale = $scope.getKeyNotes($scope.song.key);
       let newIntervals = $scope.getIntervals($scope.song.scale);
       for(section in $scope.song.sections){
         let songSection = $scope.song.sections[section]
@@ -84,5 +98,15 @@ const app = angular.module('myApp', [])
         $scope.newSectionChords = '';
       }
       $scope.newSectionChords = $scope.newSectionChords + " " + chord;
+    }
+    $scope.toggleMajorMinor = function(){
+      if ($scope.song.majorMinor === 'major') {
+        $scope.song.majorMinor = 'minor'
+      }
+      else {
+        $scope.song.majorMinor = 'major'
+      }
+      $scope.song.scale = $scope.getKeyNotes($scope.song.key);
+      $scope.song.intervals = $scope.getIntervals($scope.song.scale);
     }
 }])
