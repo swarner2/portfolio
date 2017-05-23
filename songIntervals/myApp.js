@@ -79,4 +79,10 @@ const app = angular.module('myApp', [])
         $scope.song.intervals = $scope.getIntervals($scope.song.scale);
       }
     }
+    $scope.addToNewSectionChords = function(chord){
+      if ($scope.newSectionChords === undefined) {
+        $scope.newSectionChords = '';
+      }
+      $scope.newSectionChords = $scope.newSectionChords + " " + chord;
+    }
 }])
