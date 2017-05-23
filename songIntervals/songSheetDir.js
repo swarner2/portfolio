@@ -3,7 +3,7 @@ app.directive('songSheetDir',function(){
     template:
     `
     <div>
-      name: {{song.name}} <br>
+      name: <input type="text" ng-model="song.name" ng-change="changeTitle()" <br>
       key: {{song.key}} <br>
       scale notes: {{song.scale.join(", ")}} <br>
       <ul ng-repeat="(section, info) in song.sections">

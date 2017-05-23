@@ -3,6 +3,7 @@ const app = angular.module('myApp', [])
 .controller('myCtrl', ['$scope', function($scope){
     $scope.song = {
       key : "B",
+      name : 'New Song',
       majorMinor: 'major',
       sections :  {
         Verse: {
@@ -11,6 +12,9 @@ const app = angular.module('myApp', [])
         }
       },
     };
+    $scope.changeTitle = function (){
+        window.document.title = $scope.song.name
+    }
     $scope.getKeyNotes = function(key){
       key = key.toUpperCase();
       let notes = ["A","A#","B","C","C#","D","D#","E","F","F#","G","G#","A","A#","B","C","C#","D","D#","E","F","F#","G","G#"]
