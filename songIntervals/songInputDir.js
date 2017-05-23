@@ -9,7 +9,7 @@ app.directive("songInputDir",function(){
         <input type="Button" value={{song.majorMinor}} ng-click="toggleMajorMinor()">
         <br>
         <span ng-repeat="note in notes">
-          <input type="button" value={{note}} ng-click="song.key = note">
+          <input type="button" value={{note}} ng-click="song.key = note; updateScale()">
         </span> <br>
         Section Name: <input type="text" ng-model="newSectionName"> <br>
         <span ng-repeat="sectionType in sectionTypes">
