@@ -21,7 +21,7 @@
 body{
   background-image: url('/portfolio-background');
   background-size: cover;
-  height: 105%;
+  height: 150%;
 }
 #wrapper{
   max-width: 960px;

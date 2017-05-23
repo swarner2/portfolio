@@ -22,6 +22,7 @@ module.exports = function(app){
 			'/forest'	: portfolio + '/img/forest.jpg',
 			'/toDoImg' : portfolio + '/img/toDo.png',
 			'/latin' : portfolio + '/img/latin.jpg',
+			'/intervals' : portfolio + '/img/intervals.jpg',
 		'/sentenceGen' :  '/sentenceGen/sentenceGen.html',
 			'/sentenceGenScript' : '/sentenceGen/sentenceGenScript.js',
 			'/sentenceGenStyle' : '/sentenceGen/style.css',
