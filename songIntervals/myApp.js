@@ -2,7 +2,7 @@ const app = angular.module('myApp', [])
 
 .controller('myCtrl', ['$scope', function($scope){
     $scope.sectionTypes=['Verse','Chorus','Bridge','Instrumental', 'Tag', 'Pre-Chorus'];
-
+    $scope.notes = ["A","A#","B","C","C#","D","D#","E","F","F#","G","G#"];
     $scope.song = {
       key : "C",
       name : 'New Song',
