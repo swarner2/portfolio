@@ -6,6 +6,13 @@ body {
 input
 {
     font-size:.5em;
+    height: auto;
+}
+input[type="button"]{
+  font-size: 1em;
+}
+input[type="text"]{
+  font-size:1em;
 }
 
 #container{
