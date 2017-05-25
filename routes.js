@@ -30,6 +30,7 @@ module.exports = function(app){
 			'/myApp'	: songIntervals + "/myApp.js",
 			'/songSheetDir': songIntervals + "/songSheetDir.js",
 			'/songInputDir': songIntervals + "/songInputDir.js",
+			"/songIntervalStylesheet" : songIntervals + "/songIntervalStylesheet.css" 
 	};
 	var makeRoute = function(route, file){
 		app.get(route, function (req, res) {
