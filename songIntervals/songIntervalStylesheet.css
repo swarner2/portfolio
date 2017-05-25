@@ -1,5 +1,6 @@
 body {
   background-color: lightgrey;
+
 }
 
 #container{
@@ -23,8 +24,8 @@ body {
   display: inline;
 }
 
-.scale{
-  margin-left: 70px;
+.sectionContainer{
+  font-size: 1.5em;
 }
 
 .sectionTitle{
