@@ -11,8 +11,8 @@ app.directive('songSheetDir',function(){
           <div class='sectionInfoContainer'>
             <p class='sectionChords'>{{info.chords.join(' - ')}} </p>
             <p class='sectionIntervals'>{{song.sectionIntervals(info.chords).join(' - ') }}</p>
+            <p class='sectionNoteInput'><input value='add note'></p>
           </div>
-          <p class='sectionNoteInput'><input value='add note'></p>
         </div>
       </ul>
     </div>

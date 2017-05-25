@@ -3,6 +3,11 @@ body {
 
 }
 
+input
+{
+    font-size:.5em;
+}
+
 #container{
   width: 85%;
   margin: auto;
@@ -34,10 +39,8 @@ body {
 }
 
 .sectionInfoContainer{
-  display: inline;
 }
 .sectionInfoContainer p{
-  display: inline;
   margin: 0px;
   padding: 0px;
   padding-left: 50px;;
