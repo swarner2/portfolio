@@ -76,9 +76,10 @@ const app = angular.module('myApp', [])
       })
     }
     $scope.addSection = function(){
+      console.log();
         $scope.song.sections[$scope.newSectionName] = {
-          chords:  $scope.newSectionChords.split(' '),
-          intervals : $scope.song.sectionIntervals($scope.newSectionChords.split(' '))
+          chords:  $scope.newSectionChords.replace(" ",'').split(' '),
+          intervals : $scope.song.sectionIntervals($scope.newSectionChords.replace(" ",'').split(' '))
         }
         $scope.newSectionChords = '';
     }
