@@ -1,0 +1,113 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  min-width:1000px; /* suppose you want minimun width of 1000px */
+  width: auto !important;  /* Firefox will set width as auto */
+  width:1000px;             /* As IE ignores !important it will set width as 1000px; */
+
+}
+
+.container {
+  margin: 0px;
+  padding: 0px;
+
+}
+
+#top-menu {
+  margin: 0px;
+  padding: 0px;
+}
+
+.logo-big-background {
+  background-color: #a93439;
+  width: 160px;
+  height: 54px;
+  text-align: center;
+}
+.logo-big {
+  width: 75%;
+  height: 52%;
+  padding: 10px;
+  padding-top: 13px;
+}
+
+#logo-li {
+  padding: 0px;
+}
+
+.container-two {
+  margin: 30px;
+}
+
+.two  {
+  display: inline-flex;
+  margin: 0px 13px;
+  width: 47%;
+}
+
+.three {
+  width: 30%;
+}
+
+#partner-header {
+  padding-left: 25px;
+  padding-top: 10px;
+  color: #14274c;
+}
+
+#partners {
+  background: #EBEBEB;
+  margin: 0px;
+  padding: 10px 25px;
+  font: 'Trade Gothic W01 Bold 2';
+
+}
+
+.partner-container {
+  display: inline-grid;
+  position: relative;
+  width: 32%;
+  padding: 5px;
+}
+
+.img-overlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  text-align: right;
+  color: white;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  font-family: 'Arial';
+}
+
+.partner-logo {
+  width: 60%;
+  padding: 15px 20%;
+}
+
+.partner-img {
+  width: 100%;
+}
+
+#vh-logo {
+  padding-bottom: 7%;
+}
+
+ul {
+  list-style: none;
+}
+li {
+  display: inline-flex;
+  font: 15px 'Trade Gothic W01 Bold 2';
+  padding: 0 25px;
+  vertical-align: -webkit-baseline-middle;
+}
+
+.one {
+  width: 100%;
+}
+
+#bottom-nav {
+
+}
