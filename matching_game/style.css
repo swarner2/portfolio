@@ -36,3 +36,13 @@ player {
   padding: 50px;
   text-align: center;
 }
+
+.Tie {
+  color: gray;
+}
+.Blue {
+  color: blue;
+}
+.Red {
+  color: red;
+}

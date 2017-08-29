@@ -2,7 +2,7 @@ app.component('board', {
   template :`
     <div id='board'>
       <h4>Board</h4>
-      <h5 id='turn'>Players Turn {{$ctrl.turn}}</h5>
+      <h5 class='{{$ctrl.turn}}'>Players Turn {{$ctrl.turn}}</h5>
       <winner></winner>
       <div ng-repeat='card in $ctrl.shuffledDeck track by $index' class='card {{card.color}} {{card.clicked}}' ng-click='$ctrl.flipCard(card, $index)'>
       <p>{{card.number}}</p>
