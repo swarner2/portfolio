@@ -15,6 +15,7 @@ app.component('player', {
 playerCtrl.$inject = ['gameService']
 function playerCtrl(gameService){
   // console.log('team', this.team, 'turn', gameService.turn);
+  
   this.score = gameService.score
   this.style = {}
   if (gameService.turn === this.team) {
