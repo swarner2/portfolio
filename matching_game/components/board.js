@@ -13,33 +13,34 @@ app.component('board', {
   controller : cardCtrl
 })
 
-cardCtrl.$inject = ['cardService', '$window', 'gameService']
-function cardCtrl(cardService, $window, gameService){
+cardCtrl.$inject = ['cardService', '$window', 'gameService', 'shuffleService']
+function cardCtrl(cardService, $window, gameService, shuffleService){
+  this.shuffleService = shuffleService;
   this.window = function(){
     $window.location.reload();
   }
-  this.deck = cardService.cards
+  // this.deck = cardService.cards
 
-  this.drawCard = function(){
-    cardId = Math.floor(Math.random() * this.deck.length)
-    //I know this is a bad idea for speed but since the game is so small I am starting with this
-    //and would fix it at the end if there is enough time
-    while(this.deck[cardId].used >= 1) {
-      cardId = Math.floor(Math.random() * this.deck.length)
-    }
-    this.deck[cardId].used++
-    return this.deck[cardId]
-  }
+  // this.drawCard = function(){
+  //   cardId = Math.floor(Math.random() * this.deck.length)
+  //   //I know this is a bad idea for speed but since the game is so small I am starting with this
+  //   //and would fix it at the end if there is enough time
+  //   while(this.deck[cardId].used >= 1) {
+  //     cardId = Math.floor(Math.random() * this.deck.length)
+  //   }
+  //   this.deck[cardId].used++
+  //   return this.deck[cardId]
+  // }
+  //
+  // this.shuffle = function(){
+  //   let shuffled = []
+  //   for (var i = 0; i < this.deck.length; i++) {
+  //     shuffled.push(this.drawCard())
+  //   }
+  //   return shuffled
+  // }
 
-  this.shuffle = function(){
-    let shuffled = []
-    for (var i = 0; i < this.deck.length; i++) {
-      shuffled.push(this.drawCard())
-    }
-    return shuffled
-  }
-
-  this.shuffledDeck = this.shuffle()
+  this.shuffledDeck = shuffleService.shuffle()
 
   this.clicked = [];
 

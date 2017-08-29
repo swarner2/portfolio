@@ -4,6 +4,7 @@ app.component('player', {
       <h2>{{$ctrl.team}} Player</h2>
       <p> Score: {{$ctrl.score[$ctrl.team]}}</p>
     </div>
+    <h1>{{$ctrl.shuffleService.test}}</h1>
   `,
   controller: playerCtrl,
   bindings : {
