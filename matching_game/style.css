@@ -34,6 +34,7 @@ player {
 
 #board {
   padding: 50px;
+  padding-top: 0px;
   text-align: center;
 }
 
@@ -45,4 +46,12 @@ player {
 }
 .Red {
   color: red;
+}
+
+.gameNotOver {
+  display: none;
+}
+
+.RedRedturn, .BlueBlueturn{
+    border: solid black 1px;
 }
