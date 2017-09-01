@@ -1,0 +1,35 @@
+.row {
+  display: flex;
+}
+
+.square {
+  height: 75px;
+  width:  75px;
+  margin: -2px;
+  border: solid black 1px;
+}
+
+.black {
+  background-color: black;
+  color: white;
+}
+
+.white {
+  background-color: white;
+  color: black;
+}
+
+.pieceplayer1 {
+  background-image: url('images/white-piece.png');
+  background-size: cover;
+}
+.pieceplayer2 {
+  background-image: url('images/black-piece.png');
+  background-size: cover;
+}
+
+.clicked {
+  border: solid red 2px;
+  height: 73px;
+  width: 73px;
+}
