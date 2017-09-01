@@ -4,7 +4,7 @@ app.service('moveService', ['boardService',function(boardService){
   let moves = {};
   let lastMoves = {left: '', right: ''};
 
-  this.getMoves = function(y,x){
+  this.getMoves = function(x,y){
     let player = this.board[y][x].player
     if (player === 'player2') {
       moves.y = y + 1

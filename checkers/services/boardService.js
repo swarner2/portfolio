@@ -9,8 +9,8 @@ app.service('boardService', function(){
       let start = row % 2 !== 0 ? 'white' : 'black';
       for (var column = 0; column < width; column++) {
         let square = {};
-        square.y = column;
-        square.x = row;
+        square.x = column;
+        square.y = row;
         if (column === 0) {
           oddColor = start;
         }
