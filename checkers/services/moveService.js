@@ -33,11 +33,16 @@ app.service('moveService', ['boardService',function(boardService){
   this.setupMoves = function( board){
     lastMoves.left = board[moves.y][moves.left]
     lastMoves.right = board[moves.y][moves.right]
+    console.log(lastMoves);
     if (moves.left >= 0) {
-      lastMoves.left.move = 'move';
+      if (lastMoves.left.player === 'none') {
+        lastMoves.left.move = 'move';
+      }
     }
     if (moves.right < board[0].length) {
-      lastMoves.right.move = 'move';
+      if (lastMoves.right.player === 'none'){
+        lastMoves.right.move = 'move';
+      }
     }
   }
 }])
