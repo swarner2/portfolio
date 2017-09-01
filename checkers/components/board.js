@@ -24,17 +24,24 @@ function boardCtrl(boardService, moveService){
 
   this.clickPiece = function(x,y){
     let piece = this.board[y][x]
-    moveService.getMoves(x,y)
-  //reset lastMoves
-    moveService.resetMoves()
-  //for the first click
-    if (this.lastClicked.x != undefined) {
+    console.log(piece)
+    if (piece.player !== 'none') {
+      moveService.getMoves(x,y)
+      //reset lastMoves
+      moveService.resetMoves()
+      //for the first click
+      if (this.lastClicked.x != undefined) {
+        this.board[this.lastClicked.y][this.lastClicked.x].clicked = '';
+      }
+      this.lastClicked.x = x;
+      this.lastClicked.y = y;
+      piece.clicked = 'clicked';
+      //setup lastMoves
+      moveService.setupMoves(this.board)
+    }
+    else {
+      moveService.resetMoves();
       this.board[this.lastClicked.y][this.lastClicked.x].clicked = '';
     }
-    this.lastClicked.x = x;
-    this.lastClicked.y = y;
-    piece.clicked = 'clicked';
-  //setup lastMoves
-    moveService.setupMoves(this.board)
   }
 }
