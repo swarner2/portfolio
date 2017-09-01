@@ -33,3 +33,9 @@
   height: 73px;
   width: 73px;
 }
+
+.move {
+  border: solid red 2px;
+  height: 73px;
+  width: 73px;
+}

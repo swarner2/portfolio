@@ -16,10 +16,9 @@ app.service('boardService', function(){
         }
         let evenColor = oddColor === 'white' ? 'black' : 'white'
         square.color = column % 2 === 0 ? evenColor : oddColor;
-        console.log(row);
-        square.piece = (row < 3 && square.color === 'black') ? 'player2': 'none'
+        square.player = (row < 3 && square.color === 'black') ? 'player2': 'none'
         if (row >= 5 && square.color === 'black') {
-          square.piece = 'player1';
+          square.player = 'player1';
         }
         board[row][column] = square
       }
