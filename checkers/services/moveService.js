@@ -23,7 +23,7 @@ app.service('moveService', ['boardService',function(boardService){
     return moves;
   }
 
-  this.resetMoves = function(){
+  this.resetMoves = function(piece){
     if (lastMoves.left === undefined) {
       lastMoves.left = '';
     }
@@ -32,10 +32,11 @@ app.service('moveService', ['boardService',function(boardService){
     }
     lastMoves.left.move = '';
     lastMoves.right.move = '';
+    console.log(piece);
+    piece.clicked = '';
   }
 
   this.move = function(activePiece, x,y){
-    // console.log(activePiece,x,y);
     if (this.board[y][x].move === 'move') {
       this.board[y][x].player = activePiece.player;
       activePiece.player = 'none';

@@ -29,7 +29,7 @@ function boardCtrl(boardService, moveService){
     if (piece.player !== 'none') {
       moveService.getMoves(x,y)
       //reset lastMoves
-      moveService.resetMoves()
+       moveService.resetMoves(lastPiece)
       // //for the first click
       if (angular.equals(lastPiece, {})) {
         lastPiece = piece;
@@ -44,7 +44,7 @@ function boardCtrl(boardService, moveService){
     else {
       // console.log('empty cell clicked.  Last Piece: ', lastPiece);
       moveService.move(lastPiece, x, y);
-      moveService.resetMoves();
+      moveService.resetMoves(lastPiece);
       this.board[this.lastClicked.y][this.lastClicked.x].clicked = '';
     }
     lastPiece = piece;
