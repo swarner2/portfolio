@@ -36,7 +36,7 @@ app.service('moveService', ['boardService',function(boardService){
 
   this.move = function(activePiece, x,y){
     // console.log(activePiece,x,y);
-    if (activePiece.clicked === 'clicked') {
+    if (this.board[y][x].move === 'move') {
       this.board[y][x].player = activePiece.player;
       activePiece.player = 'none';
     }
