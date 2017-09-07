@@ -4,18 +4,22 @@ app.service('moveService', ['boardService',function(boardService){
   let moves = {};
   let lastMoves = {left: '', right: ''};
 
-  this.getMoves = function(x,y){
-    let player = this.board[y][x].player
-    if (player === 'player2') {
-      moves.y = y + 1
-      moves.left = x - 1
-      moves.right = x + 1
+  this.getMoves = function(x,y, player){
+    if (player === undefined) {
+      player = this.board[y][x].player;
+      moves.player = player;
+      if (player === 'player2') {
+        moves.y = y + 1
+        moves.left = x - 1
+        moves.right = x + 1
+      }
+      if (player === 'player1') {
+        moves.y = y - 1
+        moves.left = x - 1
+        moves.right = x + 1
+      }
     }
-    if (player === 'player1') {
-      moves.y = y - 1
-      moves.left = x - 1
-      moves.right = x + 1
-    }
+    this.checkJumps(player, moves)
     return moves;
   }
 
@@ -30,16 +34,39 @@ app.service('moveService', ['boardService',function(boardService){
     lastMoves.right.move = '';
   }
 
-  this.setupMoves = function( board){
+  this.move = function(activePiece, x,y){
+    // console.log(activePiece,x,y);
+    if (activePiece.clicked === 'clicked') {
+      this.board[y][x].player = activePiece.player;
+      activePiece.player = 'none';
+    }
+  }
+
+  this.checkJumps = function (piece, moves){
+    let opponent = piece.player === 'player1' ? 'player2' : 'player1';
+    let left = this.board[moves.y][moves.left];
+    let right = this.board[moves.y][moves.right];
+    if (left.player === opponent){
+      console.log('left is opponent');
+    }
+    if (right.player === opponent) {
+      console.log('right is opponent');
+    }
+  }
+
+  this.setupMoves = function(board){
     lastMoves.left = board[moves.y][moves.left]
     lastMoves.right = board[moves.y][moves.right]
-    console.log(lastMoves);
+    //stop board edge at left
     if (moves.left >= 0) {
+      //if the square being moved to does not have a piece on it
       if (lastMoves.left.player === 'none') {
         lastMoves.left.move = 'move';
       }
     }
+    //stop board edge at right
     if (moves.right < board[0].length) {
+      //if the square being moved to does not have a piece on it
       if (lastMoves.right.player === 'none'){
         lastMoves.right.move = 'move';
       }
