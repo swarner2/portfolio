@@ -42,15 +42,22 @@ app.service('moveService', ['boardService',function(boardService){
     }
   }
 
-  this.checkJumps = function (piece, moves){
-    let opponent = piece.player === 'player1' ? 'player2' : 'player1';
+  this.checkJumps = function (player, moves){
+    let opponent = player === 'player1' ? 'player2' : 'player1';
     let left = this.board[moves.y][moves.left];
     let right = this.board[moves.y][moves.right];
-    if (left.player === opponent){
-      console.log('left is opponent');
+    if (left) {
+      if (left.player === opponent){
+        console.log('left is opponent: ', opponent, 'left: ', left);
+        // this.getMoves(left.x, left.y, player)
+      }
     }
-    if (right.player === opponent) {
-      console.log('right is opponent');
+    console.log(right);
+    if (right) {
+      if (right.player === opponent) {
+        console.log('right is opponent: ', opponent, 'right: ', right);
+        // this.getMoves(right.x, left.y, player)
+      }
     }
   }
 
